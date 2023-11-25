@@ -2,11 +2,11 @@ import img2 from '../../../assets/HomeBanner/2.jpg'
 const About = () => {
     return (
         <div>
-<div className=' my-10'>
-<h1 className='font-serif font-bold text-4xl text-center '>About </h1>
+            <div className=' my-10'>
+                <h1 className='font-serif font-bold text-4xl text-center '>About </h1>
 
-</div>
-            <div className='flex gap-10'>
+            </div>
+            <div className='flex gap-10 items-center mb-10'>
                 <div className='w-1/2'>
                     <img src={img2} alt="" />
                 </div>
