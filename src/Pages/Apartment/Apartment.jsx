@@ -1,20 +1,19 @@
+import useApartment from "../../Hooks/useApartment/useApartment";
+import ApartmentCard from "./ApartmentCard";
+
 const Apartment = () => {
+    const[apartment]=useApartment()
+    console.log(apartment)
     return (
-        <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">
-                        Shoes!
-                        <div className="badge badge-secondary">NEW</div>
-                    </h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
-                    </div>
-                </div>
-            </div>
+        <div className="my-20 px-10">
+            <h1 className="text-4xl text-center font-semibold mb-2">All ApartMents</h1>
+            <div className="divider w-[10%] mx-auto bg-black h-[2px] mb-5"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {
+                 apartment?.map(item=><ApartmentCard key={item._id} apartment={item}></ApartmentCard>)
+            }
+          
+        </div>
         </div>
     );
 };

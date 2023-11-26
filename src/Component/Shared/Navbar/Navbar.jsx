@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
 import useAuth from "../../../Hooks/useAuth";
-import {  useState } from "react";
+import { useState } from "react";
 const Navbar = () => {
   const { user, handleSignOut } = useAuth()
   const [open, setopen] = useState(false)
 
-  
+
   const handleLogOut = () => {
     handleSignOut()
   }
@@ -35,17 +35,18 @@ const Navbar = () => {
                              rounded-md z-20 ml-8 lg:ml-0 lg:mr-40 absolute
                             text-center shadow-lg shadow-[#858585]'>
                   <h1 className='' >{user?.displayName && user.displayName}</h1>
-                  <h1 className='lowercase' >{user?.email && user.email}</h1>
-                  <li onClick={handleLogOut} className="bg-[#2b3440] rounded-md 
-                                    py-2 px-3 text-white mt-2
-                                    ">LogOut</li>
+                  {/* <h1 className='lowercase' >{user?.email && user.email}</h1> */}
+                  <NavLink>DashBoard</NavLink>
+                  <li onClick={handleLogOut}
+                    className="bg-[#2b3440]
+                                rounded-md 
+                                py-2 px-3 
+                                text-white mt-2
+                        ">LogOut</li>
 
                 </div>
                 :
-                <div className='hidden absolute font-medium'>
-                  <h1 className='' >{user?.displayName && user.displayName}</h1>
-                  <h1 className='' >{user?.email && user.email}</h1>
-                </div>
+                <></>
             }
           </div>
         </div>

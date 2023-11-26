@@ -1,4 +1,4 @@
-import GoogleMap from "../../Component/GoogleMap/GoogleMap";
+import GoogleMap from "../../Component/Home/GoogleMap/GoogleMap";
 import About from "../../Component/Home/About/About";
 import Banner from "../../Component/Home/Banner/Banner";
 
