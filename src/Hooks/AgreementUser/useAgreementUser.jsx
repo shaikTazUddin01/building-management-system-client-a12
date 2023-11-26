@@ -1,13 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import useAxiosPublic from '../AxiosPublic/useAxiosPublic';
-// import { useState } from 'react';
 import useAxiosSecure from '../AxiosSecure/useAxiosSecure'
 
 const useAgreementUser = () => {
-    // const axiosPubilc = useAxiosPublic()
     const axiosSecure=useAxiosSecure()
     // const{loader,setloader}=useState(true)
-    const { data:agreement, refetch,isLoading } = useQuery({
+    const { data:agreement,isLoading,refetch } = useQuery({
         queryKey: ['apartment'],
         queryFn: async () => {
             const res = await axiosSecure.get('/agreementsRequest')
@@ -16,6 +13,6 @@ const useAgreementUser = () => {
         }
     })
    
-    return [agreement, refetch,isLoading];
+    return [agreement,isLoading,refetch];
 };
 export default useAgreementUser;

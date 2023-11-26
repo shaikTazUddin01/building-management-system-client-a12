@@ -3,12 +3,12 @@ import useAgreementUser from "../../../../Hooks/AgreementUser/useAgreementUser";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 
 const AgreementRequests = () => {
-    const [agreement, isLoading] = useAgreementUser()
+    const [agreement, ,refetch] = useAgreementUser()
     // console.log(agreement)
-    const axiosSecure=useAxiosSecure()
-    
-    const handleAcceptRequest=(id)=>{
-        console.log(id)
+    const axiosSecure = useAxiosSecure()
+
+    const handleAcceptRequest = (id) => {
+        // console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "to Accept this request",
@@ -17,19 +17,60 @@ const AgreementRequests = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Accept"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.patch(`agreementsRequest/${id}`)
-                .then(res=>console.log(res.data))
+                axiosSecure.patch(`/agreementsRequest/${id}`)
+                    .then(res => {
+                        refetch()
+                        if (res.data.modifiedCount) {
+                            Swal.fire({
+                                title: "SuccessFully you accept this Request!",
+                                icon: "success"
+                            });
+                        } else {
+                            Swal.fire({
+                                title: "something is wrong please try again",
+                                icon: "error"
+                            });
+                        }
+                    }
+                    )
 
-            //   Swal.fire({
-            //     title: "Deleted!",
-            //     text: "Your file has been deleted.",
-            //     icon: "success"
-            //   });
             }
-          });
-      
+        });
+
+    }
+    const handelReject=(id)=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "to reject this request",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Accept"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/agreementsRequest/${id}`)
+                    .then(res => {
+                        console.log(res.data)
+                        refetch()
+                        if (res.data) {
+                            Swal.fire({
+                                title: "SuccessFully you Reject this Request!",
+                                icon: "success"
+                            });
+                        } else {
+                            Swal.fire({
+                                title: "something is wrong please try again",
+                                icon: "error"
+                            });
+                        }
+                    }
+                    )
+
+            }
+        });
     }
     return (
         <div className="px-10 my-10">
@@ -53,28 +94,33 @@ const AgreementRequests = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            agreement?.map((request,i) => {
+                            agreement?.map((request, i) => {
                                 return (
-                                <tr key={request?._id}>
-                                    <td>{i+1}</td>
-                                    <td>
-                                        {request?.userName}
-                                    </td>
-                                    <td>
-                                        {request?.userEmail}
-                                    </td>
-                                    <td>{request?.floorNo}</td>
-                                    <td>({request.blockName} )Block</td>
-                                    <td>{request?.apartmentNo}</td>
-                                    <td>{request?.rent}</td>
-                                    <th>
-                                        <button className="btn btn-ghost btn-xs">{request?.requestDate}</button>
-                                    </th>
-                                    <th className="flex gap-2">
-                                        <button className="btn btn-primary" onClick={()=>handleAcceptRequest(request?._id)}>Accept</button>
-                                        <button className="btn btn-error">Reject</button>
-                                    </th>
-                                </tr>)
+                                    <tr key={request?._id}>
+                                        <td>{i + 1}</td>
+                                        <td>
+                                            {request?.userName}
+                                        </td>
+                                        <td>
+                                            {request?.userEmail}
+                                        </td>
+                                        <td>{request?.floorNo}</td>
+                                        <td>({request.blockName} )Block</td>
+                                        <td>{request?.apartmentNo}</td>
+                                        <td>{request?.rent}</td>
+                                        <th>
+                                            <button className="btn btn-ghost btn-xs">{request?.requestDate}</button>
+                                        </th>
+                                        <th className="flex gap-2">
+                                            {
+                                                request?.status==='pending' ?
+                                            <button className="btn btn-primary" onClick={() => handleAcceptRequest(request?._id)}>Accept</button>
+                                            :
+                                            <button className="btn btn-success" >checked</button>
+                                            }
+                                            <button className="btn btn-error" onClick={()=>{handelReject(request?._id)}}>Reject</button>
+                                        </th>
+                                    </tr>)
                             }
                             )
                         }
