@@ -5,10 +5,14 @@ import { updateProfile } from 'firebase/auth';
 import auth from '../../FireBase/FireBase.config';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../Hooks/AxiosPublic/useAxiosPublic';
 
 const SignUp = () => {
+    // const {user}=useAuth()
+    // console.log(user)
+    const axiosPubilc = useAxiosPublic();
     const { handleSignUp } = useAuth()
-    const navigete=useNavigate()
+    const navigete = useNavigate()
     const handleSignUpForm = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -24,13 +28,23 @@ const SignUp = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photoUrl
                 }).then(() => {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "SuccessFully Sign UP",
-                        showConfirmButton: false,
-                        timer: 1500
-                      });
+                    const userInfo = {
+                        name, email, photoUrl
+                    }
+                    axiosPubilc.post('/users',userInfo)
+                    .then(res=>{
+                        console.log(res.data)
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+                    //
                     navigete('/')
                 }).catch((error) => {
                     Swal.fire({
@@ -39,13 +53,21 @@ const SignUp = () => {
                         title: "SomeThing is wrong please try again",
                         showConfirmButton: false,
                         timer: 1500
-                      });
+                    });
                 })
-            }).catch(err => toast.success("SomeThing is Wrong Please Try Again"))
+            }).catch(err => {
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "SomeThing is wrong please try again",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
     }
     return (
         <div>
-            <div className=" min-h-[100vh] bg-cover" 
+            <div className=" min-h-[100vh] bg-cover"
             // style={{ backgroundImage: `url(${loginbg})` }}
             >
                 <div className="flex justify-center items-center min-h-[100vh] bg-[#00000062]">
@@ -90,7 +112,7 @@ const SignUp = () => {
                         <div className='flex justify-center mb-5'>
                             <p className='text-[18px] font-semibold'>Have An Account <Link to={'/login'} className='text-blue-700 font-bold'>Sign In</Link></p>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

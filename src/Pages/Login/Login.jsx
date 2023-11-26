@@ -1,14 +1,14 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import loginbg from '../../assets/img/loginbg/loginbg.jpg'
 import { FcGoogle } from 'react-icons/fc';
-import { useContext } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2'
 import useAuth from '../../Hooks/useAuth';
+import useAxiosPublic from '../../Hooks/AxiosPublic/useAxiosPublic';
 // import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
     const { handleSignIn, handleGoogleSignIn } = useAuth()
     const location = useLocation()
+    const axiosPubilc = useAxiosPublic()
     // console.log(location);
     const navigate = useNavigate()
     const handleSignInForm = (e) => {
@@ -20,35 +20,46 @@ const Login = () => {
             .then(result => {
                 Swal.fire({
                     title: 'SuccessFully Sign In',
-                    // text: 'Do you want to continue',
                     icon: 'success',
-                    // confirmButtonText: 'Cool'
+
                 })
-
                 navigate(location?.state ? location.state : '/');
-
-
 
             }).catch(err => {
                 Swal.fire({
                     title: 'Your email or password is wrong',
-                    // text: 'Do you want to continue',
+    
                     icon: 'error',
-                    // confirmButtonText: 'Cool'
+
                 })
             })
-        // console.log(email,password)
+
     }
     const handleGoogleLogIn = () => {
         handleGoogleSignIn()
             .then(result => {
-                Swal.fire({
-                    title: 'SuccessFully Sign In',
-                    // text: 'Do you want to continue',
-                    icon: 'success',
-                    // confirmButtonText: 'Cool'
-                })
-                // navigate(location?.state?location.state:'/');
+                if (result.user) {
+                    const name = result?.user?.dispalyName
+                    const email = result?.user?.email
+                    const photoUrl = result?.user?.photoURL
+                    const userInfo = {
+                        name, email, photoUrl
+                    }
+                    axiosPubilc.post('/users', userInfo)
+                        .then(res => {
+                            console.log(res.data)
+                            if (res.data) {
+                                Swal.fire({
+                                    position: "center",
+                                    icon: "success",
+                                    title: "successfully you login",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                            }
+                        })
+                }
+
             })
             .catch(err => {
                 Swal.fire({

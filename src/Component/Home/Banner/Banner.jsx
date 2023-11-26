@@ -32,27 +32,27 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide ><div className='h-[500px] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${img1})` }}>
-                    <div className=' bg-[#20225e85] h-[500px]'>
+                    <div className=' bg-[#0b0b1c85] h-[500px]'>
 
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img2})` }}>
-                    <div className=' bg-[#20225e85] h-[500px]'>
+                    <div className=' bg-[#0b0b1c85] h-[500px]'>
 
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img3})` }}>
-                    <div className=' bg-[#20225e85] h-[500px]'>
+                    <div className=' bg-[#0b0b1c85] h-[500px]'>
 
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img4})` }}>
-                    <div className=' bg-[#20225e85] h-[500px]'>
+                    <div className=' bg-[#0b0b1c85] h-[500px]'>
 
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img5})` }}>
-                    <div className=' bg-[#20225e85] h-[500px]'>
+                    <div className=' bg-[#0b0b1c85] h-[500px]'>
 
                     </div>
                 </div></SwiperSlide>

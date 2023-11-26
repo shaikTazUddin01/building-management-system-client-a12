@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
 import useAuth from "../../../Hooks/useAuth";
-import { useState } from "react";
+import {  useState } from "react";
 const Navbar = () => {
   const { user, handleSignOut } = useAuth()
   const [open, setopen] = useState(false)
 
+  
   const handleLogOut = () => {
     handleSignOut()
   }
@@ -17,15 +18,15 @@ const Navbar = () => {
     <li><NavLink to={'/apartment'}>
       Apartment
     </NavLink></li>
-    
+
     {
       user ?
         <div className="pl-2" >
           <div className='flex flex-col lg:justify-center lg:items-center px-5 lg:px-0'  >
-            
+
             <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full' onClick={() => setopen(!open)}
             />
-         
+
 
             {
               open ?
