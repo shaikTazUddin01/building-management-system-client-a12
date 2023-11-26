@@ -29,7 +29,7 @@ const SignUp = () => {
                     displayName: name, photoURL: photoUrl
                 }).then(() => {
                     const userInfo = {
-                        name, email, photoUrl
+                        name, email, photoUrl,role:"user"
                     }
                     axiosPubilc.post('/users',userInfo)
                     .then(res=>{

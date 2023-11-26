@@ -3,12 +3,12 @@ import useAgreementUser from "../../../../Hooks/AgreementUser/useAgreementUser";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 
 const AgreementRequests = () => {
-    const [agreement, ,refetch] = useAgreementUser()
+    const [agreement, , refetch] = useAgreementUser()
     // console.log(agreement)
     const axiosSecure = useAxiosSecure()
 
-    const handleAcceptRequest = (id) => {
-        // console.log(id)
+    const handleAcceptRequest = (id, email) => {
+        console.log(id, email)
         Swal.fire({
             title: "Are you sure?",
             text: "to Accept this request",
@@ -19,10 +19,11 @@ const AgreementRequests = () => {
             confirmButtonText: "Accept"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.patch(`/agreementsRequest/${id}`)
+                axiosSecure.patch(`/agreementsRequest?id=${id}&email=${email}`)
                     .then(res => {
                         refetch()
-                        if (res.data.modifiedCount) {
+                        // console.log(res.data)
+                        if (res.data.acceptStatus.modifiedCount) {
                             Swal.fire({
                                 title: "SuccessFully you accept this Request!",
                                 icon: "success"
@@ -40,7 +41,9 @@ const AgreementRequests = () => {
         });
 
     }
-    const handelReject=(id)=>{
+    //handle reaject request
+    const handleRejecttRequest = (id) => {
+        // console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "to reject this request",
@@ -48,17 +51,17 @@ const AgreementRequests = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Accept"
+            confirmButtonText: "Reject"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/agreementsRequest/${id}`)
+                axiosSecure.patch(`/agreementsRejectRequest?id=${id}`)
                     .then(res => {
-                        console.log(res.data)
                         refetch()
-                        if (res.data) {
+                        // console.log(res.data)
+                        if (res.data.modifiedCount) {
                             Swal.fire({
-                                title: "SuccessFully you Reject this Request!",
-                                icon: "success"
+                                title: " you reject this Request!",
+                                icon: "warning"
                             });
                         } else {
                             Swal.fire({
@@ -71,14 +74,20 @@ const AgreementRequests = () => {
 
             }
         });
+
     }
+
     return (
         <div className="px-10 my-10">
+            <div className="text-center">
+                <h1 className="text-4xl">Agreement Requests</h1>
+                <div className="divider bg-blue-600 h-[2px] w-[10%] mx-auto"></div>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr className="text-xl font-semibold font-sans">
+                        <tr className="text-xl font-semibold font-sans text-black ">
 
                             <th>#</th>
                             <th>User Name</th>
@@ -113,12 +122,14 @@ const AgreementRequests = () => {
                                         </th>
                                         <th className="flex gap-2">
                                             {
-                                                request?.status==='pending' ?
-                                            <button className="btn btn-primary" onClick={() => handleAcceptRequest(request?._id)}>Accept</button>
-                                            :
-                                            <button className="btn btn-success" >checked</button>
+                                                request?.status === 'pending' ?
+                                                    <>
+                                                        <button className="btn btn-primary" onClick={() => handleAcceptRequest(request?._id, request?.userEmail)}>Accept</button>
+                                                        <button className="btn btn-error" onClick={() => handleRejecttRequest(request?._id)}>Reject</button>
+                                                    </>
+                                                    :
+                                                    <button className="btn btn-success" >checked</button>
                                             }
-                                            <button className="btn btn-error" onClick={()=>{handelReject(request?._id)}}>Reject</button>
                                         </th>
                                     </tr>)
                             }

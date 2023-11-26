@@ -43,7 +43,7 @@ const Login = () => {
                     const email = result?.user?.email
                     const photoUrl = result?.user?.photoURL
                     const userInfo = {
-                        name, email, photoUrl
+                        name, email, photoUrl,role:"user"
                     }
                     axiosPubilc.post('/users', userInfo)
                         .then(res => {

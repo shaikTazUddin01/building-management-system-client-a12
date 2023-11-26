@@ -18,6 +18,7 @@ const ApartmentCard = ({ apartment }) => {
     const handleAgeement = () => {
         const userName = user?.displayName;
         const userEmail = user?.email
+        
         // console.log(_id, userName, userEmail)
         const ageementInfo = {
             userName,
