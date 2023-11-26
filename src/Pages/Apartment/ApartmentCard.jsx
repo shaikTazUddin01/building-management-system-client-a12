@@ -6,6 +6,14 @@ const ApartmentCard = ({ apartment }) => {
     const axiosPubilc = useAxiosPublic()
     const { user } = useAuth()
     const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent } = apartment;
+    const currentDate=new Date()
+    const formattedDate = currentDate.toLocaleDateString('en-US', {
+        month: '2-digit',
+        day: '2-digit',
+        year: 'numeric',
+      });
+      
+    //   console.log(formattedDate);
 
     const handleAgeement = () => {
         const userName = user?.displayName;
@@ -18,7 +26,8 @@ const ApartmentCard = ({ apartment }) => {
             apartmentNo,
             blockName,
             rent: parseInt(rent),
-            status: 'pending'
+            status: 'pending',
+            requestDate: formattedDate
         }
         // console.log(ageementInfo)
         axiosPubilc.post('/ageement',ageementInfo)

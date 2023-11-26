@@ -14,8 +14,8 @@ const AdminProfile = () => {
                 <div className='relative w-[20% ] flex flex-col justify-start items-center px-10 pt-10 bg-slate-200 h-screen'>
                     <img src={user?.photoURL} alt="" className='rounded-full w-[50%]' />
                     {/* <div className='text-center'> */}
-                        <h1 className='font-semibold'>{user?.displayName}</h1>
-                        <h1 className='font-semibold'>{user?.email}</h1>
+                    <h1 className='font-semibold'>{user?.displayName}</h1>
+                    <h1 className='font-semibold'>{user?.email}</h1>
                     {/* </div> */}
                 </div>
                 <div className='bg-red-100 h-screen w-[80%]'>
