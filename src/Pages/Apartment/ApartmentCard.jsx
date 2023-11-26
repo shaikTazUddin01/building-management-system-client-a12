@@ -1,11 +1,48 @@
+import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/AxiosPublic/useAxiosPublic";
+import useAuth from "../../Hooks/useAuth";
 
 const ApartmentCard = ({ apartment }) => {
     const axiosPubilc = useAxiosPublic()
+    const { user } = useAuth()
     const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent } = apartment;
 
-    const handleAgeement() => {
-        axiosPubilc.get('')
+    const handleAgeement = () => {
+        const userName = user?.displayName;
+        const userEmail = user?.email
+        // console.log(_id, userName, userEmail)
+        const ageementInfo = {
+            userName,
+            userEmail,
+            floorNo,
+            apartmentNo,
+            blockName,
+            rent: parseInt(rent),
+            status: 'pending'
+        }
+        // console.log(ageementInfo)
+        axiosPubilc.post('/ageement',ageementInfo)
+        .then(res=>{
+            if (res.data.insertedId) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Successfully you sent a ageement request",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "something is wrong please try again",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        })
     }
 
     return (

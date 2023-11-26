@@ -36,7 +36,7 @@ const Navbar = () => {
                             text-center shadow-lg shadow-[#858585]'>
                   <h1 className='' >{user?.displayName && user.displayName}</h1>
                   {/* <h1 className='lowercase' >{user?.email && user.email}</h1> */}
-                  <NavLink>DashBoard</NavLink>
+                  <NavLink to={'/dashboard'}>DashBoard</NavLink>
                   <li onClick={handleLogOut}
                     className="bg-[#2b3440]
                                 rounded-md 
