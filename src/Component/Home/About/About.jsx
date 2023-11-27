@@ -11,8 +11,10 @@ const About = () => {
                     <img src={img2} alt="" />
                 </div>
                 <div className='w-1/2'>
-                    <h1 className='font-serif font-bold text-4xl'>About</h1>
-                    <p className='font-sans'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero aut rem facere excepturi quisquam neque esse iure. Ad soluta sit obcaecati, vitae error reprehenderit voluptate minima veniam labore temporibus ut nemo quia inventore. Fugiat ipsa, maxime blanditiis qui natus, ab consectetur consequuntur quos, nesciunt necessitatibus sunt odit sapiente omnis aliquam.</p>
+                    <h1 className='font-serif font-bold text-4xl'>Remarkable 2500 Sq Ft Ready Apartment For Rent In Gulshan</h1>
+                    <p className='font-sans'>Nestled in the prestigious neighborhood of Gulshan, this extraordinary 4-bedroom, 4-bathroom residential flat for rent offers an expansive 2500 sq ft of sophisticated living space. </p>
+                    <p className='font-sans mt-4'>Beyond the allure of the interior, residents benefit from practical amenities such as a well-equipped kitchen, parking space, elevators, CCTV security, and electricity backup, ensuring a hassle-free and secure living experience.  </p>
+                    <p className='font-sans mt-4'>Gulshan is renowned for its upscale lifestyle, and this rental property is strategically located to take full advantage of the area's amenities. Reputable educational institutions are within reach, offering top-notch learning opportunities for families. </p>
                 </div>
             </div>
         </div>

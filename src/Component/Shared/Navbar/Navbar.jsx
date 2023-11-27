@@ -33,15 +33,24 @@ const Navbar = () => {
                 <div className='lg:mt-40 text-white border border-[#FFFFF]
                                  bg-[#2b2b2b] p-4 mt-10 
                              rounded-md z-20 ml-8 lg:ml-0 lg:mr-40 absolute
-                            text-center shadow-lg shadow-[#858585]'>
+                            text-center shadow-lg shadow-[#858585] w-[250px]'>
                   <h1 className='' >{user?.displayName && user.displayName}</h1>
                   {/* <h1 className='lowercase' >{user?.email && user.email}</h1> */}
-                  <NavLink to={'/dashboard'}>DashBoard</NavLink>
+                 <NavLink to={'/dashboard'} >
+                 <li
+                    className="bg-[#2b3440]
+                                rounded-md 
+                                py-2 px-3 
+                                text-white mt-2
+                                hover:bg-[#082e5f]
+                        ">DashBoard</li>
+                 </NavLink>
                   <li onClick={handleLogOut}
                     className="bg-[#2b3440]
                                 rounded-md 
                                 py-2 px-3 
                                 text-white mt-2
+                                hover:bg-[#082e5f]
                         ">LogOut</li>
 
                 </div>

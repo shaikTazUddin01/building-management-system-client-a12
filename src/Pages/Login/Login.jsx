@@ -38,8 +38,9 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         handleGoogleSignIn()
             .then(result => {
+                console.log(result.user.displayName)
                 if (result.user) {
-                    const name = result?.user?.dispalyName
+                    const name = result?.user?.displayName
                     const email = result?.user?.email
                     const photoUrl = result?.user?.photoURL
                     const userInfo = {

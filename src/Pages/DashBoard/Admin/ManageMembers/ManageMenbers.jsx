@@ -21,7 +21,7 @@ const ManageMenbers = () => {
             confirmButtonText: "Remove"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.patch(`/agreementsRejectRequest?id=${id}`)
+                axiosSecure.patch(`/userRole?id=${id}`)
                     .then(res => {
                         refetch()
                         // console.log(res.data)
@@ -81,7 +81,7 @@ const ManageMenbers = () => {
                                         </td>
                                         <td>{item?.email}</td>
                                         <th>
-                                            <button className="btn btn-error" onClick={()=>handlememberShip(item?._it)}>Delete Member</button>
+                                            <button className="btn btn-error" onClick={()=>handlememberShip(item?._id)}>Delete Member</button>
                                         </th>
                                     </tr>
                                 )
