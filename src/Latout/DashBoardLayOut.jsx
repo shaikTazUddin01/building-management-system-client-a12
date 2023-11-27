@@ -12,6 +12,7 @@ if (isPending) {
         <div className="flex">
             <div className='w-64 bg-blue-900 min-h-screen p-5'>
                 <ul className='menu text-white uppercase'>
+                    {/* user menu */}
                     {
                         role === 'user' &&
                         <>
@@ -21,6 +22,7 @@ if (isPending) {
                                 Announcements</NavLink></li>
                         </>
                     }
+                    {/* admin menu */}
                     {
                         role === 'admin' &&
                         <>
@@ -35,13 +37,13 @@ if (isPending) {
                             <li><NavLink to={'/dashboard/manageCoupons'}>
                                 Manage Coupons</NavLink></li>
                         </>
-                    }{
+                    }
+                    {/* member menu */}
+                    {
                         role === 'member' &&
                         <>
                             <li><NavLink to={'/dashboard/memberProfile'}>
                             My Profile</NavLink></li>
-                            <li><NavLink to={'/dashboard/makePayment'}>
-                            Make payment</NavLink></li>
                             <li><NavLink to={'/dashboard/makePayment'}>
                             Make payment</NavLink></li>
                             <li><NavLink to={'/dashboard/paymentHistory'}>

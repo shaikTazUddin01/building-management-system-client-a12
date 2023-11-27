@@ -1,29 +1,27 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Hooks/AxiosSecure/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/AxiosPublic/useAxiosPublic";
+import useAnnouncements from "../../../Hooks/useAnnouncements/useAnnouncements";
 
 const Announcements = () => {
-    const { user, loader } = useAuth();
-    const axiosPubilc = useAxiosPublic()
-    // console.log(user?.email)
-    //  con
-
-    const { data: announcement, isPending } = useQuery({
-        queryKey: [user?.email, 'isAdmin'],
-        enabled: !loader,
-        queryFn: async () => {
-            const res = await axiosPubilc.get(`/announcements/${user?.email}`)
-            // console.log(res.data)
-            return res.data
-        }
-    })
+   const [announcement,isPending]=useAnnouncements()
     if (isPending) {
         return <p>loading...</p>
     }
+    console.log(announcement)
     return (
-        <div>
-            <h1>{announcement.title}</h1>
+        <div className="px-20 pt-20">
+            {
+                announcement?.map(item=>{
+                    return(
+                        <div key={item?._id}>
+                            <h1 className="text-xl">Title : {item.title}</h1>
+                            <h1 className="text-xl">Description : {item.description}</h1>
+                        </div>
+
+                    )
+                })
+            }
             {/* <h1>{announcement.de}</h1> */}
         </div>
     );

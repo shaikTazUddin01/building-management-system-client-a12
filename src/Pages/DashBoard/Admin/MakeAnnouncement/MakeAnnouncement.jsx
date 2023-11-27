@@ -1,6 +1,8 @@
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../Hooks/AxiosSecure/useAxiosSecure'
+import useAnnouncements from '../../../../Hooks/useAnnouncements/useAnnouncements';
 const MakeAnnouncement = () => {
+    // const[announcement,isPending]=useAnnouncements().............
     const axiosSecret = useAxiosSecure()
     const handleAnnouncement = (event) => {
         event.preventDefault()
@@ -10,7 +12,7 @@ const MakeAnnouncement = () => {
         const announcementInfo = { title, description }
         axiosSecret.post('/makeannouncement', announcementInfo)
             .then(res => {
-                if(res.data.insertedId){
+                if (res.data.insertedId) {
                     Swal.fire({
                         position: "center",
                         icon: "success",
@@ -25,8 +27,8 @@ const MakeAnnouncement = () => {
 
     }
     return (
-        <div className="min-h-screen bg-base-200">
-            <div className=" px-20">
+        <div className=" px-20">
+            <div className="min-h-screen bg-base-200">
                 <h1 className="text-4xl font-semibold text-center py-10">Make Announcement</h1>
                 <div className="">
 
@@ -49,7 +51,9 @@ const MakeAnnouncement = () => {
                             </div>
                         </form>
                     </div>
+
                 </div>
+                {/* <MakeAnnouncement></MakeAnnouncement> */}
             </div>
         </div>
     );
