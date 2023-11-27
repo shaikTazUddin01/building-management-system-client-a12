@@ -12,6 +12,7 @@ import ManageMembers from '../Pages/DashBoard/Admin/ManageMembers/ManageMenbers'
 import MakeAnnouncement from '../Pages/DashBoard/Admin/MakeAnnouncement/MakeAnnouncement'
 import AgreementRequests from '../Pages/DashBoard/Admin/AgreementRequests/AgreementRequests'
 import ManageCoupons from '../Pages/DashBoard/Admin/ManageCoupons/ManageCoupons'
+import MemberProfile from '../Pages/DashBoard/Member/MemberProfile';
 
 
 
@@ -49,10 +50,6 @@ const Routes = createBrowserRouter([
                 element: <Myprofile></Myprofile>
             },
             {
-                path: '/dashboard/myprofile',
-                element: <Myprofile></Myprofile>
-            },
-            {
                 path: '/dashboard/announcements',
                 element: <Announcements></Announcements>
             },
@@ -78,6 +75,11 @@ const Routes = createBrowserRouter([
             {
                 path:'/dashboard/manageCoupons',
                 element:<ManageCoupons></ManageCoupons>
+            },
+            //member profile
+            {
+                path:'/dashboard/memberProfile',
+                element:<MemberProfile></MemberProfile>
             }
         ]
     }

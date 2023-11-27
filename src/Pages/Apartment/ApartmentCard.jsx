@@ -5,7 +5,7 @@ import useAuth from "../../Hooks/useAuth";
 const ApartmentCard = ({ apartment }) => {
     const axiosPubilc = useAxiosPublic()
     const { user } = useAuth()
-    const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent } = apartment;
+    const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent,roomNo } = apartment;
     const currentDate=new Date()
     const formattedDate = currentDate.toLocaleDateString('en-US', {
         month: '2-digit',
@@ -28,7 +28,8 @@ const ApartmentCard = ({ apartment }) => {
             blockName,
             rent: parseInt(rent),
             status: 'pending',
-            requestDate: formattedDate
+            requestDate: formattedDate,
+            roomNo
         }
         // console.log(ageementInfo)
         axiosPubilc.post('/ageement',ageementInfo)
