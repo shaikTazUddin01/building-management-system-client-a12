@@ -40,6 +40,7 @@ const MakeAnnouncement = () => {
                                 </label>
                                 <input type="taxt" placeholder="Title" className="input input-bordered" required name="title" />
                             </div>
+                           
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description</span>

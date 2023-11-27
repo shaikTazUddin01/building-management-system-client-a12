@@ -1,27 +1,38 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
+import useCupon from "../../../../Hooks/useCupon/useCupon";
+import CuponCard from "./cuponCard";
 
 const ManageCoupons = () => {
 
-    const axiosSecret=useAxiosSecure()
+    const axiosSecret = useAxiosSecure()
+    const [cupon, isPending] = useCupon()
+    console.log(cupon)
+    if (isPending) {
+        return <p>loading...</p>
+    }
     const handleManageKupon = (e) => {
         e.preventDefault()
-        const cupon = e.target.cupon.value
-        console.log(cupon)
-
-        axiosSecret.post('/cupons',{cupon})
-        .then(res=>{
-            if (res.data.insertedId) {
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "successfully you make a new Cupon",
-                    showConfirmButton: false,
-                    timer: 1500
-                
-            })
+        const cuponCode = e.target.cupon.value
+        const discount = e.target.discount.value
+        const description = e.target.description.value
+        const cupon = {
+            cuponCode, discount, description
         }
-        })
+        console.log(cupon)
+        axiosSecret.post('/cupons', cupon)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "successfully you make a new Cupon",
+                        showConfirmButton: false,
+                        timer: 1500
+
+                    })
+                }
+            })
     }
     return (
         <div className=" px-20">
@@ -33,19 +44,49 @@ const ManageCoupons = () => {
                         <form className="card-body" onSubmit={handleManageKupon}>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Make Cupon</span>
+                                    <span className="label-text">Inter Cupon</span>
                                 </label>
-                                <input type="taxt" placeholder="make cupon here" className="input input-bordered" required name="cupon" />
+                                <input type="taxt" placeholder="enter cupon here" className="input input-bordered" required name="cupon" />
                             </div>
-
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Deicount (%)</span>
+                                </label>
+                                <input type="number" placeholder="discount" className="input input-bordered" required name="discount" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">description</span>
+                                </label>
+                                <textarea type="taxt" placeholder="Description" className="textarea input-bordered textarea-lg " name="description" required />
+                            </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary" type="submit">Make</button>
+                                <button className="btn btn-primary" type="submit">Make Cupon</button>
                             </div>
                         </form>
                     </div>
 
                 </div>
-                {/* <MakeAnnouncement></MakeAnnouncement> */}
+
+                {/* manage table */}
+                <div className="overflow-x-auto my-10 px-10">
+                    <h1 className="text-4xl font-serif mb-5 text-center">Manage Cupon </h1>
+                    <table className="table table-zebra  border">
+                        {/* head */}
+                        <thead>
+                            <tr className="text-xl font-sans font-semibold border border-black">
+                                <th>Cupon Id</th>
+                                <th>cupon</th>
+                                <th>Discount</th>
+                                <th>Discription</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {cupon?.map(item => <CuponCard key={item?._id} item={item}></CuponCard>)}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
