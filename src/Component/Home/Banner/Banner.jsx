@@ -9,12 +9,14 @@ import img5 from '../../../assets/HomeBanner/5.jpg'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // import './styles.css';
 
 // import required modules
 import { Autoplay, Pagination } from 'swiper/modules';
 const Banner = () => {
+    AOS.init()
     return (
         <div className=''>
             <Swiper
@@ -32,28 +34,63 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide ><div className='h-[500px] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${img1})` }}>
-                    <div className=' bg-[#0b0b1c85] h-[500px]'>
-
+                <div className=' bg-[#0b0b1c85] h-[500px] flex justify-center items-center'>
+                        <div data-aos="fade-down">
+                            <h1 className='text-white  text-center font-serif text-6xl mb-2' >Janab Ali Mention</h1>
+                            <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl ' >Ghasful And Most BeautiFul Building in Gulshan</h1>
+                            <div className='flex items-center justify-center mt-2' >
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
+                            </div>
+                        </div>
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img2})` }}>
-                    <div className=' bg-[#0b0b1c85] h-[500px]'>
-
+                    <div className=' bg-[#0b0b1c85] h-[500px] flex justify-center items-center'>
+                        <div data-aos="fade-down">
+                            <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
+                            <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
+                            <div className='flex items-center justify-center mt-2'>
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
+                            </div>
+                        </div>
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img3})` }}>
-                    <div className=' bg-[#0b0b1c85] h-[500px]'>
-
+                <div className=' bg-[#0b0b1c85] h-[500px] flex justify-center items-center'>
+                        <div data-aos="fade-down">
+                            <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
+                            <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
+                            <div className='flex items-center justify-center mt-2'>
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
+                            </div>
+                        </div>
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img4})` }}>
-                    <div className=' bg-[#0b0b1c85] h-[500px]'>
-
+                <div className=' bg-[#0b0b1c85] h-[500px] flex justify-center items-center'>
+                        <div data-aos="fade-down">
+                            <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
+                            <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
+                            <div className='flex items-center justify-center mt-2'>
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
+                            </div>
+                        </div>
                     </div>
                 </div></SwiperSlide>
                 <SwiperSlide><div className='h-[500px] bg-[#f8f8f8] bg-cover bg-center ' style={{ backgroundImage: `url(${img5})` }}>
-                    <div className=' bg-[#0b0b1c85] h-[500px]'>
-
+                <div className=' bg-[#0b0b1c85] h-[500px] flex justify-center items-center'>
+                        <div data-aos="fade-down">
+                            <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
+                            <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
+                            <div className='flex items-center justify-center mt-2'>
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
+                            </div>
+                        </div>
                     </div>
                 </div></SwiperSlide>
             </Swiper>

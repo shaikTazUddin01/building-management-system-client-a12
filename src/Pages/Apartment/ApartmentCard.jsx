@@ -1,8 +1,10 @@
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/AxiosPublic/useAxiosPublic";
 import useAuth from "../../Hooks/useAuth";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const ApartmentCard = ({ apartment }) => {
+    AOS.init()
     const axiosPubilc = useAxiosPublic()
     const { user } = useAuth()
     const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent,roomNo } = apartment;
@@ -58,7 +60,7 @@ const ApartmentCard = ({ apartment }) => {
 
     return (
         <div>
-            <div className="card  bg-base-100 shadow-xl mt-4" >
+            <div className="card  bg-base-100 shadow-xl mt-4" data-aos="fade-down">
                 <figure><img src={apartmentImage} alt="apartment image" className="h-[250px] w-full" /></figure>
                 <div className="px-5 py-5">
                     <div className="flex justify-between">

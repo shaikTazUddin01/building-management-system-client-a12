@@ -1,6 +1,9 @@
 import Swal from "sweetalert2";
 import useAgreementUser from "../../../../Hooks/AgreementUser/useAgreementUser";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
+// import Divider from '../../../Component/Shared/Divider'
+import img1 from '../../../../assets/HomeBanner/pro.jpg'
+import Divider from "../../../../Component/Shared/Divider";
 
 const AgreementRequests = () => {
     const [agreement, , refetch] = useAgreementUser()
@@ -78,12 +81,15 @@ const AgreementRequests = () => {
     }
 
     return (
-        <div className="px-10 my-10">
-            <div className="text-center">
-                <h1 className="text-4xl">Agreement Requests</h1>
-                <div className="divider bg-blue-600 h-[2px] w-[10%] mx-auto"></div>
+        <div style={{ backgroundImage: `url(${img1})` }} className="bg-cover min-h-screen">
+        <div className=" bg-[#0606068a] min-h-screen">
+
+            <div className="text-white pt-10">
+                <Divider header={'Agreement Request'}></Divider>
             </div>
-            <div className="overflow-x-auto">
+            <div className="-mt-16 pb-20">
+                <div className="bg-[#11123567] mt-20 px-1 py-1 space-y-2 text-white rounded-2xl min-h-screen mx-1">
+                <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -139,7 +145,11 @@ const AgreementRequests = () => {
                     </tbody>
                 </table>
             </div>
+                </div>
+            </div>
+
         </div>
+    </div>
     );
 };
 

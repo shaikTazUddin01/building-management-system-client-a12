@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import useCupon from "../../../../Hooks/useCupon/useCupon";
 import CuponCard from "./cuponCard";
+import Divider from "../../../../Component/Shared/Divider";
 
 const ManageCoupons = () => {
 
@@ -37,7 +38,7 @@ const ManageCoupons = () => {
     return (
         <div className=" px-20">
             <div className="min-h-screen bg-base-200">
-                <h1 className="text-4xl font-semibold text-center py-10">Make Announcement</h1>
+               <Divider header={'Make Announcement'}></Divider>
                 <div className="">
 
                     <div className="card shadow-2xl bg-base-100 w-1/2 mx-auto">
@@ -70,7 +71,7 @@ const ManageCoupons = () => {
 
                 {/* manage table */}
                 <div className="overflow-x-auto my-10 px-10">
-                    <h1 className="text-4xl font-serif mb-5 text-center">Manage Cupon </h1>
+                    <Divider header={'Manage coupons'}></Divider>
                     <table className="table table-zebra  border">
                         {/* head */}
                         <thead>

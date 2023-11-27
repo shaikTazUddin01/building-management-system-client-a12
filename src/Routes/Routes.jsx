@@ -13,6 +13,11 @@ import MakeAnnouncement from '../Pages/DashBoard/Admin/MakeAnnouncement/MakeAnno
 import AgreementRequests from '../Pages/DashBoard/Admin/AgreementRequests/AgreementRequests'
 import ManageCoupons from '../Pages/DashBoard/Admin/ManageCoupons/ManageCoupons'
 import MemberProfile from '../Pages/DashBoard/Member/MemberProfile';
+import MyProfile from '../Pages/DashBoard/User/MyProfile';
+import PrivateRoute from './PrivateRoute';
+import MemberRoute from './MemberRoute';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import AdminRoute from './AdminRoute';
 
 
 
@@ -21,6 +26,7 @@ const Routes = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -44,42 +50,43 @@ const Routes = createBrowserRouter([
     {
         path: '/dashboard',
         element: <DashBoardLayOut></DashBoardLayOut>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
-                path: '/dashboard/myprofile',
-                element: <Myprofile></Myprofile>
+                path: '/dashboard/userProfile',
+                element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
             },
             {
                 path: '/dashboard/announcements',
-                element: <Announcements></Announcements>
+                element: <PrivateRoute><Announcements></Announcements></PrivateRoute>
             },
 
             //admin dashboard
             {
                 path: '/dashboard/adminprofile',
-                element: <AdminProfile></AdminProfile>
+                element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
             },
            
             {
                 path:'/dashboard/manageMembers',
-                element:<ManageMembers></ManageMembers>
+                element:<AdminRoute><ManageMembers></ManageMembers></AdminRoute>
             },
             {
                 path:'/dashboard/makeAnnouncement',
-                element:<MakeAnnouncement></MakeAnnouncement>
+                element:<AdminRoute><MakeAnnouncement></MakeAnnouncement></AdminRoute>
             },
             {
                 path:'/dashboard/agreementRequests',
-                element:<AgreementRequests></AgreementRequests>
+                element:<AdminRoute><AgreementRequests></AgreementRequests></AdminRoute>
             },
             {
                 path:'/dashboard/manageCoupons',
-                element:<ManageCoupons></ManageCoupons>
+                element:<AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
             },
             //member profile
             {
                 path:'/dashboard/memberProfile',
-                element:<MemberProfile></MemberProfile>
+                element:<MemberRoute><MemberProfile></MemberProfile></MemberRoute>
             }
         ]
     }
