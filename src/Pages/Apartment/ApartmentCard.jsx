@@ -3,24 +3,27 @@ import useAxiosPublic from "../../Hooks/AxiosPublic/useAxiosPublic";
 import useAuth from "../../Hooks/useAuth";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import useAdmin from "../../Hooks/useAdmin/useAdmin";
 const ApartmentCard = ({ apartment }) => {
+    const [role] = useAdmin()
+    console.log(role)
     AOS.init()
     const axiosPubilc = useAxiosPublic()
     const { user } = useAuth()
-    const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent,roomNo } = apartment;
-    const currentDate=new Date()
+    const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent, roomNo } = apartment;
+    const currentDate = new Date()
     const formattedDate = currentDate.toLocaleDateString('en-US', {
         month: '2-digit',
         day: '2-digit',
         year: 'numeric',
-      });
-      
+    });
+
     //   console.log(formattedDate);
 
     const handleAgeement = () => {
         const userName = user?.displayName;
         const userEmail = user?.email
-        
+
         // console.log(_id, userName, userEmail)
         const ageementInfo = {
             userName,
@@ -34,30 +37,39 @@ const ApartmentCard = ({ apartment }) => {
             roomNo
         }
         // console.log(ageementInfo)
-        axiosPubilc.post('/ageement',ageementInfo)
-        .then(res=>{
-            if (res.data.insertedId) {
+        axiosPubilc.post('/ageement', ageementInfo)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Successfully you sent a ageement request",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+            .catch(err => {
+                console.log(err)
                 Swal.fire({
                     position: "center",
-                    icon: "success",
-                    title: "Successfully you sent a ageement request",
+                    icon: "error",
+                    title: "something is wrong please try again",
                     showConfirmButton: false,
                     timer: 1500
                 });
-            }
-        })
-        .catch(err=>{
-            console.log(err)
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "something is wrong please try again",
-                showConfirmButton: false,
-                timer: 1500
-            });
-        })
+            })
     }
 
+    const handelAlreadyBook=()=>{
+        Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Already you Booked a Room",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    }
     return (
         <div>
             <div className="card  bg-base-100 shadow-lg shadow-blue-800
@@ -76,9 +88,17 @@ const ApartmentCard = ({ apartment }) => {
                         <p className="text-xl font-sans font-semibold ">Floor No. :
                             <span className="text-blue-600"> {floorNo}</span> </p>
                     </div>
-                    <div className="text-center my-5">
-                        <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handleAgeement}>Agreement</button>
-                    </div>
+                    {
+                        role === 'member' ?
+                            <div className="text-center my-5">
+                                <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handelAlreadyBook}>Agreement</button>
+                            </div>
+                            :
+                            <div className="text-center my-5">
+                                <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handleAgeement}>Agreement</button>
+                            </div>
+                    }
+
                 </div>
             </div>
         </div>

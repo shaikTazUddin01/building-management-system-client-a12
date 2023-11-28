@@ -5,7 +5,7 @@ import bgImg from '../../../../assets/HomeBanner/pro.jpg'
 import Divider from "../../../../Component/Shared/Divider";
 const PaymentHistory = () => {
     const[paymentHistory,isPending]=usePaymentHistory()
-    console.log(paymentHistory)
+    // console.log(paymentHistory)
     if (isPending) {
         return <img src={loading} alt="" className="mx-auto mt-20"/>
     }
