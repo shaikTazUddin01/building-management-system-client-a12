@@ -84,7 +84,11 @@ const CheckoutForm = ({ payment }) => {
                     apartmentNo:payment?.apartmentNo,
                     RoomNo:payment?.RoomNo,
                     amount:(paymentIntent?.amount)/100,
-                    Date:new Date()
+                    Date:new Date().toLocaleDateString('en-US', {
+                        month: '2-digit',
+                        day: '2-digit',
+                        year: 'numeric',
+                      })
                 }
                 axiosSecure.post('/paymentHistory',paymentInfo)
                 .then(res=>{
