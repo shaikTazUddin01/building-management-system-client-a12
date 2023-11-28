@@ -19,7 +19,7 @@ import MemberRoute from './MemberRoute';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 import AdminRoute from './AdminRoute';
 import MakePayment from '../Pages/DashBoard/Member/MakePayment/MakePayment';
-import PaymentForm from '../Pages/DashBoard/Member/MakePayment/PaymentForm';
+import PaymentForm from '../Pages/DashBoard/Member/MakePayment/Payment';
 
 
 
@@ -95,7 +95,7 @@ const Routes = createBrowserRouter([
                 element:<MemberRoute><MakePayment></MakePayment></MemberRoute>
             },
             {
-                path:'/dashboard/makePayment/paymentForm',
+                path:'/dashboard/makePayment/paymentForm/:id',
                 element:<MemberRoute><PaymentForm></PaymentForm></MemberRoute>
             }
         ]

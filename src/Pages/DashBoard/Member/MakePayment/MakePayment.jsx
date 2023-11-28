@@ -58,7 +58,7 @@ const MakePayment = () => {
                                                 </td>
                                                 <td>{item?.rent }</td>
                                                 <td>
-                                                    <Link to={'paymentForm'}>
+                                                    <Link to={`paymentForm/${item?._id}`}>
                                                     <button className='btn btn-primary'>Payment</button>
                                                     </Link>
                                                 </td>
