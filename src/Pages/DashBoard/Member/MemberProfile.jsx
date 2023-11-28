@@ -4,7 +4,7 @@ import useAuth from "../../../Hooks/useAuth";
 import Divider from "../../../Component/Shared/Divider";
 
 import img1 from '../../../assets/HomeBanner/pro.jpg'
-
+import loading from '/public/loading.gif'
 const MemberProfile = () => {
 
     const {user,loader}=useAuth();
@@ -22,7 +22,7 @@ const MemberProfile = () => {
         }
     })
     if (isPending) {
-       return <p>loading...</p>
+       return <img src={loading} alt="" className="mx-auto mt-28"/>
     }
 //    return[useInfo,isPending]
 console.log(userInfo)

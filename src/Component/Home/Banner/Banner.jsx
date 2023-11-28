@@ -39,8 +39,8 @@ const Banner = () => {
                             <h1 className='text-white  text-center font-serif text-6xl mb-2' >Janab Ali Mention</h1>
                             <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl ' >Ghasful And Most BeautiFul Building in Gulshan</h1>
                             <div className='flex items-center justify-center mt-2' >
-                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
-                                <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Search Your Room..' />
+                                <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl '>Search</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ const Banner = () => {
                             <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
                             <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
                             <div className='flex items-center justify-center mt-2'>
-                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Search Your Room..' />
                                 <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ const Banner = () => {
                             <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
                             <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
                             <div className='flex items-center justify-center mt-2'>
-                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Search Your Room..' />
                                 <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ const Banner = () => {
                             <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
                             <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
                             <div className='flex items-center justify-center mt-2'>
-                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Search Your Room..' />
                                 <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ const Banner = () => {
                             <h1 className='text-white  text-center font-serif text-6xl mb-2'>Janab Ali Mention</h1>
                             <h1 className='text-[#c8c7c7]  text-center font-serif text-2xl '>Ghasful And Most BeautiFul Building in Gulshan</h1>
                             <div className='flex items-center justify-center mt-2'>
-                                <input type="text" className='w-2/3 p-3 rounded-l-xl' placeholder='Search Your Room..' />
+                                <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Search Your Room..' />
                                 <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl'>Search</button>
                             </div>
                         </div>

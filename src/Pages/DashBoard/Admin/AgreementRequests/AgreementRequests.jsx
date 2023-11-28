@@ -93,7 +93,7 @@ const AgreementRequests = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr className="text-xl font-semibold font-sans text-black ">
+                        <tr className="text-xl font-semibold font-sans text-white ">
 
                             <th>#</th>
                             <th>User Name</th>
@@ -121,7 +121,7 @@ const AgreementRequests = () => {
                                         </td>
                                         <td>{request?.floorNo}</td>
                                         <td>({request.blockName} )Block</td>
-                                        <td>{request?.apartmentNo}</td>
+                                        <td>{request?.roomNo}</td>
                                         <td>{request?.rent}</td>
                                         <th>
                                             <button className="btn btn-ghost btn-xs">{request?.requestDate}</button>

@@ -23,7 +23,7 @@ const Login = () => {
                     icon: 'success',
 
                 })
-                navigate(location?.state ? location.state : '/');
+                navigate('/');
 
             }).catch(err => {
                 Swal.fire({
@@ -57,6 +57,7 @@ const Login = () => {
                                     showConfirmButton: false,
                                     timer: 1500
                                 });
+                                navigate('/')
                             }
                         })
                 }

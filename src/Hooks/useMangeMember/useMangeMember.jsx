@@ -4,8 +4,8 @@ import useAxiosPublic from '../AxiosPublic/useAxiosPublic';
 const useMangeMember = () => {
     const axiosPubilc = useAxiosPublic()
     // const{loader,setloader}=useState(true)
-    const { data:user, refetch,isLoading } = useQuery({
-        queryKey: ['apartment'],
+    const { data:totaluser, refetch,isLoading } = useQuery({
+        queryKey: ['totaluser'],
         queryFn: async () => {
             const res = await axiosPubilc.get('/users')
             // setloader(false)
@@ -13,7 +13,7 @@ const useMangeMember = () => {
         }
     })
    
-    return [user, refetch,isLoading];
+    return [totaluser, refetch,isLoading];
 };
 
 export default useMangeMember;

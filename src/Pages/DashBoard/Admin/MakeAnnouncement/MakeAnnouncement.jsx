@@ -49,7 +49,7 @@ const MakeAnnouncement = () => {
                     <Divider header={'Make Announcements'}></Divider>
                 </div>
                 <div className=" -mt-16 w-1/2 mx-auto pb-10" >
-                    <div className=" bg-[#11123567] mt-20 px-14 py-16 space-y-2 text-white flex rounded-2xl">
+                    <div className=" bg-[#11123567] mt-20 px-5 py-5 space-y-2 text-white flex rounded-2xl">
                         <form className="card-body" onSubmit={handleAnnouncement}>
                             <div className="form-control">
                                 <label className="label">
@@ -65,7 +65,7 @@ const MakeAnnouncement = () => {
                                 <textarea type="taxt" placeholder="Description" className="textarea input-bordered textarea-lg " name="description" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary" type="submit">Submit</button>
+                                <button className="btn btn-primary text-xl" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>

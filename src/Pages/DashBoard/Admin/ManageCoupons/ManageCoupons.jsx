@@ -3,14 +3,14 @@ import useAxiosSecure from "../../../../Hooks/AxiosSecure/useAxiosSecure";
 import useCupon from "../../../../Hooks/useCupon/useCupon";
 import CuponCard from "./cuponCard";
 import Divider from "../../../../Component/Shared/Divider";
-
+import loading from '/public/loading.gif'
 const ManageCoupons = () => {
 
     const axiosSecret = useAxiosSecure()
     const [cupon, isPending] = useCupon()
     console.log(cupon)
     if (isPending) {
-        return <p>loading...</p>
+        return <img src={loading} alt="" />
     }
     const handleManageKupon = (e) => {
         e.preventDefault()

@@ -3,11 +3,12 @@ import useAdmin from '../Hooks/useAdmin/useAdmin';
 import { FaHistory, FaHome, FaHouseUser, FaUserAlt } from "react-icons/fa";
 import { GrAnnounce } from "react-icons/gr";
 import { MdApartment, MdManageAccounts, MdOutlineCardGiftcard, MdOutlinePayment, MdRequestQuote } from "react-icons/md";
+import loading from '/loading.gif'
 const DashBoardLayOut = () => {
     const [role, isPending] = useAdmin()
     console.log(role)
     if (isPending) {
-        return <p>loading...</p>
+        return <img src={loading} alt="" className="mx-auto mt-28"/>
     }
     return (
         <div className="flex">

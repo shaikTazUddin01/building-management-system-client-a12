@@ -12,6 +12,7 @@ const SignUp = () => {
     // console.log(user)
     const axiosPubilc = useAxiosPublic();
     const { handleSignUp } = useAuth()
+
     const navigete = useNavigate()
     const handleSignUpForm = (e) => {
         e.preventDefault()
@@ -42,6 +43,7 @@ const SignUp = () => {
                                 showConfirmButton: false,
                                 timer: 1500
                             });
+                            navigete('/')
                         }
                     })
                     //

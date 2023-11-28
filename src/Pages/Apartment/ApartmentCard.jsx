@@ -60,7 +60,9 @@ const ApartmentCard = ({ apartment }) => {
 
     return (
         <div>
-            <div className="card  bg-base-100 shadow-xl mt-4" data-aos="fade-down">
+            <div className="card  bg-base-100 shadow-lg shadow-blue-800
+            hover:shadow-xl hover:shadow-blue-800
+            mt-4" data-aos="fade-down">
                 <figure><img src={apartmentImage} alt="apartment image" className="h-[250px] w-full" /></figure>
                 <div className="px-5 py-5">
                     <div className="flex justify-between">
@@ -70,12 +72,12 @@ const ApartmentCard = ({ apartment }) => {
 
                     </div>
                     <div className="flex justify-between mt-2">
-                        <p className="text-xl font-sans font-semibold ">Block No. : <span className="text-blue-600">{blockName}</span></p>
+                        <p className="text-xl font-sans font-semibold ">Block No. : <span className="text-blue-600">{blockName} Block</span></p>
                         <p className="text-xl font-sans font-semibold ">Floor No. :
                             <span className="text-blue-600"> {floorNo}</span> </p>
                     </div>
                     <div className="text-center my-5">
-                        <button className="btn btn-primary uppercase" onClick={handleAgeement}>Agreement</button>
+                        <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handleAgeement}>Agreement</button>
                     </div>
                 </div>
             </div>

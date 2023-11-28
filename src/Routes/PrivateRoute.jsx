@@ -1,12 +1,12 @@
 import useAuth from "../Hooks/useAuth";
-
+import loading from '/public/loading.gif'
 const PrivateRoute = ({ children }) => {
 
     const { user, loader } = useAuth()
 
 
     if (loader) {
-        return <p>loading...</p>
+        return <img src={loading} alt="" className="mx-auto mt-28"/>
     }
     if (user) {
         return children

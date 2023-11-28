@@ -6,9 +6,9 @@ import img1 from '../../../../assets/HomeBanner/pro.jpg'
 import Divider from "../../../../Component/Shared/Divider";
 const ManageMenbers = () => {
     const axiosSecure = useAxiosSecure()
-    const [user, refetch] = useMangeMember()
+    const [totaluser, refetch] = useMangeMember()
     // console.log(user)
-    const member = user?.filter(item => item.role === 'member')
+    const member = totaluser?.filter(item => item.role === 'member')
     // console.log(member)
     const handlememberShip = (id) => {
         // console.log(id)

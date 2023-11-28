@@ -1,10 +1,11 @@
 import useAnnouncements from "../../../Hooks/useAnnouncements/useAnnouncements";
 import Divider from '../../../Component/Shared/Divider'
 import img1 from '../../../assets/HomeBanner/pro.jpg'
+import loading from '/public/loading.gif'
 const Announcements = () => {
     const [announcement, isPending] = useAnnouncements()
     if (isPending) {
-        return <p>loading...</p>
+        return <img src={loading} alt="" className="mx-auto mt-28"/>
     }
     console.log(announcement)
     return (

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import ApartmentCard from "./ApartmentCard";
 import useAxiosPublic from "../../Hooks/AxiosPublic/useAxiosPublic";
-
+import loading from '/public/loading.gif'
 import { useState } from "react";
 import Divider from "../../Component/Shared/Divider";
 
@@ -19,7 +19,9 @@ const Apartment = () => {
             return res.data;
         }
     })
-
+if(isLoading){
+    return <img src={loading} alt="" className="mx-auto mt-28"/>
+}
 
     // //calculate pages for pagination
     // const apartmentLength = apartment?.length

@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import './Navbar.css'
 import useAuth from "../../../Hooks/useAuth";
 import { useState } from "react";
+import { LuLogIn } from "react-icons/lu";
+
 const Navbar = () => {
   const { user, handleSignOut } = useAuth()
   const [open, setopen] = useState(false)
@@ -30,10 +32,10 @@ const Navbar = () => {
 
             {
               open ?
-                <div className='lg:mt-40 text-white border border-[#FFFFF]
+                <div className='lg:mt-48 text-white border border-[#FFFFF]
                                  bg-[#2b2b2b] p-4 mt-10 
-                             rounded-md z-20 ml-8 lg:ml-0 lg:mr-40 absolute
-                            text-center shadow-lg shadow-[#858585] w-[250px]'>
+                             rounded-md z-20 ml-8 lg:ml-0 lg:mr-48 absolute
+                            text-center shadow-lg shadow-[#858585] w-[250px] '>
                   <h1 className='' >{user?.displayName && user.displayName}</h1>
                   {/* <h1 className='lowercase' >{user?.email && user.email}</h1> */}
                  <NavLink to={'/dashboard'} >
@@ -51,7 +53,7 @@ const Navbar = () => {
                                 py-2 px-3 
                                 text-white mt-2
                                 hover:bg-[#082e5f]
-                        ">LogOut</li>
+                        ">Log Out</li>
 
                 </div>
                 :
@@ -61,7 +63,7 @@ const Navbar = () => {
         </div>
         :
         <>
-          <li><NavLink to={'/login'}>Sign In</NavLink></li>
+          <li><NavLink to={'/login'} className={'text-2xl'}><LuLogIn></LuLogIn></NavLink></li>
           {/* <img src={userImg} alt="" className='w-10 h-10 rounded-full'/> */}
 
         </>
@@ -70,7 +72,8 @@ const Navbar = () => {
   </>
   return (
     <div>
-      <div className="navbar bg-[var(--bg-primary)] text-white font-bold px-10 ">
+      <div className="navbar bg-[var(--bg-primary)] 
+      text-white font-bold px-10">
         <div className="navbar-start">
           <div className="dropdown -ml-5">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
