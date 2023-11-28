@@ -4,7 +4,7 @@ import couponsImg from '/coupons2.gif'
 import useCupon from '../../../Hooks/useCupon/useCupon';
 const CuponButton = () => {
     const [showButton, setShowButton] = useState(true);
-    const [showCouponButton, setShowCouponButton] = useState(true)
+    const [showCouponButton, setShowCouponButton] = useState(false)
     const [cupon] = useCupon()
     // console.log(cupon)
     useEffect(() => {
@@ -38,8 +38,8 @@ const CuponButton = () => {
                 {
                     !showCouponButton ?
                         <div >
-                            <img src={couponsImg} alt="" className='h-[80px] z-50' />
-                            <span className='font-sans font-semibold'>Coupon</span>
+                            <img src={couponsImg} alt="" className='h-[80px] ' />
+                            <span className='font-sans font-semibold text-black'>Coupon</span>
                         </div>
                         :
                         <div className='bg-[#040404c2] rounded-lg px-5 py-2 shadow-lg shadow-blue-500'>
@@ -57,7 +57,7 @@ const CuponButton = () => {
                                         {cupon?.map(item => {
                                             return (
                                                 <tr key={item?._id}>
-                                                    <td>{item?.cuponCode}</td>
+                                                    <td><p>{item?.cuponCode}</p></td>
                                                     <td>{item?.discount}%</td>
                                                 </tr>
 

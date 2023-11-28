@@ -18,19 +18,19 @@ const About = () => {
             </div>
             <div className='flex gap-10 items-center mb-10'>
                 <div className='w-1/2 grid grid-cols-3'>
-                    <img src={img1} alt="" className='col-span-2 row-span-2 border w-full' data-aos="fade-right"
-                        data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" />
-                    <img src={img2} alt="" className='row-span-1 h-full border w-full' data-aos="fade-down" data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" />
-                    <img src={img3} alt="" className='w-full' data-aos="fade-left" data-aos-offset="300"
-                        />
+                    <img src={img1} alt="" className='col-span-2 row-span-2 border w-full' data-aos="fade-up"
+                        
+                    />
+                    <img src={img2} alt="" className='row-span-1 h-full border w-full' data-aos="fade-down"
+                       
+                    />
+                    <img src={img3} alt="" className='w-full' data-aos="fade-left" 
+                    />
                     <img src={img5} alt="" className='h-[200px] w-full border  row-span-1' data-aos="fade-right"
-                        data-aos-offset="300"
-                        data-aos-easing="ease-in-sine" />
-                    <img src={img6} alt="" className='h-[200px] w-full border row-span-1' data-aos="fade-up" />
-                    <img src={img7} alt="" className='h-[200px] w-full border  row-span-1' data-aos="fade-left" data-aos-offset="300"
                         />
+                    <img src={img6} alt="" className='h-[200px] w-full border row-span-1' data-aos="fade-up" />
+                    <img src={img7} alt="" className='h-[200px] w-full border  row-span-1' data-aos="fade-left" 
+                    />
                     {/* <img src={img4} alt=""className='col-span-3 row-span-1' /> */}
                 </div>
                 <div className='w-1/2' >
