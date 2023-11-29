@@ -21,7 +21,7 @@ const CheckoutForm = ({ payment }) => {
         e.preventDefault()
         const applyCoupon = e.target.coupon.value;
         const findcoupon = cupon.find(item => item.cuponCode === applyCoupon)
-        if (findcoupon && !clientSecret) {
+        if (findcoupon ) {
             const discountPrice = parseInt(findcoupon?.discount)
             const discountAmount = (discountPrice * amount) / 100
             const newPrice = amount - discountAmount
@@ -50,7 +50,7 @@ const CheckoutForm = ({ payment }) => {
                 console.log(res?.data?.clientSecret)
                 setClientSecret(res?.data?.clientSecret)
             })
-    }, [totalPay, axiosSecure])
+    }, [axiosSecure,totalPay])
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();

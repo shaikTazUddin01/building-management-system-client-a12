@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 import useAdmin from "../../Hooks/useAdmin/useAdmin";
 const ApartmentCard = ({ apartment }) => {
     const [role] = useAdmin()
-    console.log(role)
+    // console.log(role)
     AOS.init()
     const axiosPubilc = useAxiosPublic()
     const { user } = useAuth()

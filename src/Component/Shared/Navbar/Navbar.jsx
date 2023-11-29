@@ -3,14 +3,33 @@ import './Navbar.css'
 import useAuth from "../../../Hooks/useAuth";
 import { useState } from "react";
 import { LuLogIn } from "react-icons/lu";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, handleSignOut } = useAuth()
-  const [open, setopen] = useState(false)
+  const [open, setopen] = useState(true)
 
 
   const handleLogOut = () => {
     handleSignOut()
+      .then(res => {
+        Swal.fire({
+          position: "center",
+          icon: "warnign",
+          title: "successfully you logOut",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
+      .catch(err => {
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Your email or Password not matching",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
   }
   const navItem = <>
     {/* <NavLink to={'/'}><li><Home</li></NavLink> */}
@@ -31,22 +50,22 @@ const Navbar = () => {
 
 
             {
-              open ?
+              !open ?
                 <div className='lg:mt-48 text-white border border-[#FFFFF]
                                  bg-[#2b2b2b] p-4 mt-10 
                              rounded-md z-20 ml-8 lg:ml-0 lg:mr-48 absolute
                             text-center shadow-lg shadow-[#858585] w-[250px] '>
                   <h1 className='' >{user?.displayName && user.displayName}</h1>
                   {/* <h1 className='lowercase' >{user?.email && user.email}</h1> */}
-                 <NavLink to={'/dashboard'} >
-                 <li
-                    className="bg-[#2b3440]
+                  <NavLink to={'/dashboard'} >
+                    <li
+                      className="bg-[#2b3440]
                                 rounded-md 
                                 py-2 px-3 
                                 text-white mt-2
                                 hover:bg-[#082e5f]
                         ">DashBoard</li>
-                 </NavLink>
+                  </NavLink>
                   <li onClick={handleLogOut}
                     className="bg-[#2b3440]
                                 rounded-md 

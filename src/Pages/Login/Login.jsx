@@ -18,12 +18,12 @@ const Login = () => {
         const password = form.password.value;
         handleSignIn(email, password)
             .then(result => {
+                navigate('/');
                 Swal.fire({
                     title: 'SuccessFully Sign In',
                     icon: 'success',
 
                 })
-                navigate('/');
 
             }).catch(err => {
                 Swal.fire({
@@ -50,6 +50,7 @@ const Login = () => {
                         .then(res => {
                             console.log(res.data)
                             if (res.data) {
+                                navigate('/')
                                 Swal.fire({
                                     position: "center",
                                     icon: "success",
@@ -57,7 +58,7 @@ const Login = () => {
                                     showConfirmButton: false,
                                     timer: 1500
                                 });
-                                navigate('/')
+                                
                             }
                         })
                 }
