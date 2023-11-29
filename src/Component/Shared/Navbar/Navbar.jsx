@@ -4,7 +4,7 @@ import useAuth from "../../../Hooks/useAuth";
 import { useState } from "react";
 import { LuLogIn } from "react-icons/lu";
 import Swal from "sweetalert2";
-import logo from '../../../../public/mainlogo.png'
+import logo from '/mainlogo.png'
 
 const Navbar = () => {
   const { user, handleSignOut } = useAuth()
@@ -103,10 +103,10 @@ const Navbar = () => {
               {navItem}
             </ul>
           </div>
-          <div className="hidden lg:flex w-1/4">
-            <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
+          <div className="hidden lg:flex  w-1/4">
+            <a className=" normal-case text-xl flex items-center justify-center gap-2 lg:flex-col" href="/">
               <img src={logo} alt="" className="w-[50%]" />
-              <p className="font-sans">Thandan</p>
+              <p className="font-sans text-[#f8f8f8] tracking-[5px] text-sm -mt-2">Thunder</p>
             </a>
           </div>
         </div>
@@ -117,9 +117,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-end flex lg:hidden">
           <div className="">
-            <a className=" normal-case text-xl flex flex-row-reverse items-center justify-center gap-2" href="/">
+            <a className=" normal-case text-xl flex flex-col items-center justify-center gap-2" href="/">
               <img src={logo} alt="" className="w-[50%] md:w-[25%]"/>
-              <p className="font-sans md:text-3xl">Thandar</p>
+              <p className="font-sans text-[#f8f8f8] tracking-[5px] text-sm -mt-2">Thunder</p>
             </a>
             {/* <ToastContainer></ToastContainer> */}
           </div>

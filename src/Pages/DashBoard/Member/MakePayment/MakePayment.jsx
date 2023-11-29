@@ -25,7 +25,7 @@ const MakePayment = () => {
                 <div className="-mt-16 pb-20 mx-10">
                     <div className="bg-[#11123567] mt-20 px-1 py-1 space-y-2 text-white rounded-2xl  mx-1 ">
                         <div className="overflow-x-auto">
-                            <table className="table">
+                            <table className="table table-xs">
                                 {/* head */}
                                 <thead>
                                     <tr className="text-xl font-semibold font-sans text-white ">
@@ -36,7 +36,7 @@ const MakePayment = () => {
                                         <th>Block Name</th>
                                         <th>Room No</th>
                                         <th>Apartment No</th>
-                                        <th>Month</th>
+                                        {/* <th>Month</th> */}
                                         {/* <th>Room no</th> */}
                                         <th>Rent</th>
                                         <th>Payment</th>
@@ -53,9 +53,9 @@ const MakePayment = () => {
                                                 <td>{item?.blockName}</td>
                                                 <td>{item?.RoomNo}</td>
                                                 <td>{item?.apartmentNo}</td>
-                                                <td>
+                                                {/* <td>
                                                 <input type="text" placeholder="Which month's rent" className='py-2 pl-3 bg-[#11123567] rounded-lg text-white'/>
-                                                </td>
+                                                </td> */}
                                                 <td>{item?.rent }</td>
                                                 <td>
                                                     <Link to={`paymentForm/${item?._id}`}>

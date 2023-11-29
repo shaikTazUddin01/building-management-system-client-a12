@@ -38,7 +38,7 @@ const CuponButton = () => {
                 {
                     !showCouponButton ?
                         <div >
-                            <img src={couponsImg} alt="" className='h-[80px] ' />
+                            <img src={couponsImg} alt="" className='h-[80px] mr-5' />
                             <span className='font-sans font-semibold text-black'>Coupon</span>
                         </div>
                         :

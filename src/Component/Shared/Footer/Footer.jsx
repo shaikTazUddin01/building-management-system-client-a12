@@ -7,9 +7,9 @@ const Footer = () => {
     return (
         <footer className="footer p-10 bg-[var(--bg-primary)] text-white flex justify-around items-center">
             <aside className='flex flex-col justify-center items-center'>
-                <div className="flex justify-center items-center">
+                <div className="flex flex-col justify-center items-center">
                     <img src={logo} alt="" className='h-16' />
-                    {/* <p className="text-3xl font-sans font-semibold">Thandar</p> */}
+                    <p className="font-sans text-[#f8f8f8] tracking-[8px] text-sm -mt-1">Thunder</p>
                 </div>
                 <p className='text-center'>Copyright © 2023 - All right reserved by Taz Ahmed</p>
             </aside>

@@ -5,6 +5,8 @@ import { GrAnnounce } from "react-icons/gr";
 import { MdApartment, MdManageAccounts, MdOutlineCardGiftcard, MdOutlinePayment, MdRequestQuote } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
 import loading from '/loading.gif'
+import logo from '/mainlogo.png'
+
 const DashBoardLayOut = () => {
     const [role, isPending] = useAdmin()
     console.log(role)
@@ -13,9 +15,13 @@ const DashBoardLayOut = () => {
     }
     return (
         <div className="flex">
+            
             <div className='lg:w-64  lg:bg-blue-700 lg:min-h-screen lg:p-5'>
 
-
+            <div className='hidden md:flex flex-col justify-center items-center'>
+                <img src={logo} alt="" className='w-[80%]'/>
+                <p className='text-[#f8f8f8] tracking-[8px] text-sm'>Thunder</p>
+            </div>
                 <div className='hidden lg:flex'>
                     <ul className='menu text-white uppercase '>
                         {/* user menu */}

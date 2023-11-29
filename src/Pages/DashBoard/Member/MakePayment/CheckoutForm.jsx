@@ -17,11 +17,16 @@ const CheckoutForm = ({ payment }) => {
     // console.log(payment)
     const [clientSecret, setClientSecret] = useState('')
     const navagate = useNavigate()
+    const [monthValue, setMonthValue] = useState('');
+    const handlemonth = (e) => {
+        setMonthValue(e.target.value)
+    }
+    console.log(monthValue)
     const handleCoupon = (e) => {
         e.preventDefault()
         const applyCoupon = e.target.coupon.value;
         const findcoupon = cupon.find(item => item.cuponCode === applyCoupon)
-        if (findcoupon ) {
+        if (findcoupon) {
             const discountPrice = parseInt(findcoupon?.discount)
             const discountAmount = (discountPrice * amount) / 100
             const newPrice = amount - discountAmount
@@ -50,7 +55,7 @@ const CheckoutForm = ({ payment }) => {
                 console.log(res?.data?.clientSecret)
                 setClientSecret(res?.data?.clientSecret)
             })
-    }, [axiosSecure,totalPay])
+    }, [axiosSecure, totalPay])
     const handleSubmit = async (event) => {
         // Block native form submission.
         event.preventDefault();
@@ -117,6 +122,7 @@ const CheckoutForm = ({ payment }) => {
                     apartmentNo: payment?.apartmentNo,
                     RoomNo: payment?.RoomNo,
                     amount: (paymentIntent?.amount) / 100,
+                    month:monthValue,
                     Date: new Date().toLocaleDateString('en-US', {
                         month: '2-digit',
                         day: '2-digit',
@@ -144,16 +150,16 @@ const CheckoutForm = ({ payment }) => {
     return (
         <div className='px-10 ' >
             <div className='mt-10'>
-                    <h1 className='text-xl text-white text-center'>Your Payment Amount is : <span className='bg-blue-900
+                <h1 className='text-xl text-white text-center'>Your Payment Amount is : <span className='bg-blue-900
                     rounded-xl py-2 px-3'>{totalPay}</span></h1>
-                    <form onSubmit={handleCoupon}>
-                        <div className='flex items-center justify-center mt-5' >
-                            <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Enter Coupon' name='coupon' />
-                            <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl ' type='submit'>Apply</button>
-                        </div>
-                    </form>
+                <form onSubmit={handleCoupon}>
+                    <div className='flex items-center justify-center mt-5' >
+                        <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Enter Coupon' name='coupon' />
+                        <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl ' type='submit'>Apply</button>
+                    </div>
+                </form>
 
-                </div>
+            </div>
             <div className='w-full md:w-1/2 mx-auto mt-10 bg-[#0e0a267f] px-10 py-5 rounded-2xl'>
                 {/* <div>
                     <h1 className='text-xl text-white text-center'>Your Payment Amount is : <span className='bg-blue-900
@@ -166,6 +172,9 @@ const CheckoutForm = ({ payment }) => {
                     </form>
 
                 </div> */}
+                <form action="" className='w-full text-center mt-5 ' >
+                    <input type="text" className='w-1/2 p-3 rounded-xl pl-5 mx-auto' placeholder='enter name of month' name='month' onChange={handlemonth} />
+                </form>
                 <form onSubmit={handleSubmit} className=''>
                     <CardElement
                         options={{
