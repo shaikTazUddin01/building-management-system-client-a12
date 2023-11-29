@@ -8,11 +8,11 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-           <div className="px-20">
+           <div className="px-5 md:px-20">
            <About></About>
            </div>
            
-           <div className="px-20 mb-10 mt-20">
+           <div className="px-5 md:px-20 mb-10 mt-10 lg:mt-20">
             <GoogleMap></GoogleMap>
            </div>
            <CuponButton></CuponButton>

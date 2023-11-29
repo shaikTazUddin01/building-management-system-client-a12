@@ -29,27 +29,14 @@ const MakeAnnouncement = () => {
 
     }
     return (
-        // <div className=" px-20">
-        //     <div className="min-h-screen bg-base-200">
-        //         <h1 className="text-4xl font-semibold text-center py-10">Make Announcement</h1>
-        //         <div className="">
-
-        //             <div className="card shadow-2xl bg-base-100 w-1/2 mx-auto">
-
-        //             </div>
-
-        //         </div>
-        //         {/* <MakeAnnouncement></MakeAnnouncement> */}
-        //     </div>
-        // </div>
         <div style={{ backgroundImage: `url(${img1})` }} className="bg-cover min-h-screen">
             <div className=" bg-[#0606068a] min-h-screen">
 
                 <div className="text-white pt-20">
                     <Divider header={'Make Announcements'}></Divider>
                 </div>
-                <div className=" -mt-16 w-1/2 mx-auto pb-10" >
-                    <div className=" bg-[#11123567] mt-20 px-5 py-5 space-y-2 text-white flex rounded-2xl">
+                <div className="-mt-16  w-full md:w-1/2 mx-auto pb-10" >
+                    <div className=" bg-[#11123567] mt-20 px-0 md:px-5 py-5 space-y-2 text-white flex rounded-2xl">
                         <form className="card-body" onSubmit={handleAnnouncement}>
                             <div className="form-control">
                                 <label className="label">

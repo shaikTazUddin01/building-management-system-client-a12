@@ -4,6 +4,7 @@ import useAuth from "../../../Hooks/useAuth";
 import { useState } from "react";
 import { LuLogIn } from "react-icons/lu";
 import Swal from "sweetalert2";
+import logo from '../../../../public/mainlogo.png'
 
 const Navbar = () => {
   const { user, handleSignOut } = useAuth()
@@ -104,7 +105,8 @@ const Navbar = () => {
           </div>
           <div className="hidden lg:flex w-1/4">
             <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
-              <p>STUDY</p>
+              <img src={logo} alt="" className="w-[50%]" />
+              <p className="font-sans">Thandan</p>
             </a>
           </div>
         </div>
@@ -115,8 +117,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-end flex lg:hidden">
           <div className="">
-            <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
-              <p>STUDY</p>
+            <a className=" normal-case text-xl flex flex-row-reverse items-center justify-center gap-2" href="/">
+              <img src={logo} alt="" className="w-[50%] md:w-[25%]"/>
+              <p className="font-sans md:text-3xl">Thandar</p>
             </a>
             {/* <ToastContainer></ToastContainer> */}
           </div>

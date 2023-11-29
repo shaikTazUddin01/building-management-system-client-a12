@@ -83,7 +83,7 @@ const ManageCoupons = () => {
                     <div className="text-white">
                     <Divider header={'Manage Coupons'}></Divider>
                     </div>
-                    <table className="table   border">
+                    <table className="table  mb-16 ">
                         {/* head */}
                         <thead>
                             <tr className="text-xl font-sans font-semibold border border-black text-white">

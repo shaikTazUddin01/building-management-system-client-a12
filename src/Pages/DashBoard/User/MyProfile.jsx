@@ -12,7 +12,7 @@ const MyProfile = () => {
             <Divider header={'ProFile InFo'}></Divider>
             </div>
           <div className="flex justify-center -mt-16">
-          <div className="gap-10 bg-[#11123567] mt-20 px-14 py-16 space-y-2 text-white flex rounded-2xl">
+          <div className="gap-10 bg-[#11123567] mt-20 px-14 py-16 space-y-2 text-white flex rounded-2xl flex-col md:flex-row">
                <div>
                <img src={user?.photoURL} alt="" className="h-20 w-20 rounded-full mx-auto "/>
                <h1 className="text-xl font-sans font-medium text-center">  <span className=""> {user?.displayName}</span></h1>

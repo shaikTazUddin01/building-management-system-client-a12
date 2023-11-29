@@ -143,8 +143,7 @@ const CheckoutForm = ({ payment }) => {
     };
     return (
         <div className='px-10 ' >
-            <div className='w-1/2 mx-auto mt-10 bg-[#0e0a267f] px-10 py-5 rounded-2xl'>
-                <div>
+            <div className='mt-10'>
                     <h1 className='text-xl text-white text-center'>Your Payment Amount is : <span className='bg-blue-900
                     rounded-xl py-2 px-3'>{totalPay}</span></h1>
                     <form onSubmit={handleCoupon}>
@@ -155,6 +154,18 @@ const CheckoutForm = ({ payment }) => {
                     </form>
 
                 </div>
+            <div className='w-full md:w-1/2 mx-auto mt-10 bg-[#0e0a267f] px-10 py-5 rounded-2xl'>
+                {/* <div>
+                    <h1 className='text-xl text-white text-center'>Your Payment Amount is : <span className='bg-blue-900
+                    rounded-xl py-2 px-3'>{totalPay}</span></h1>
+                    <form onSubmit={handleCoupon}>
+                        <div className='flex items-center justify-center mt-5' >
+                            <input type="text" className='w-2/3 p-3 rounded-l-xl pl-5' placeholder='Enter Coupon' name='coupon' />
+                            <button className='py-[10px] px-5 rounded-r-xl bg-primary text-white font-sans font-semibold text-xl ' type='submit'>Apply</button>
+                        </div>
+                    </form>
+
+                </div> */}
                 <form onSubmit={handleSubmit} className=''>
                     <CardElement
                         options={{

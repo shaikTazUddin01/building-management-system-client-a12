@@ -21,6 +21,7 @@ import AdminRoute from './AdminRoute';
 import MakePayment from '../Pages/DashBoard/Member/MakePayment/MakePayment';
 import PaymentForm from '../Pages/DashBoard/Member/MakePayment/Payment';
 import PaymentHistory from '../Pages/DashBoard/Member/PaymentHistory/PaymentHistory';
+import WelcomePage from '../Pages/DashBoard/WelcomePage';
 // import useAdmin from '../Hooks/useAdmin/useAdmin';
 
 
@@ -56,7 +57,10 @@ const Routes = createBrowserRouter([
         element: <DashBoardLayOut></DashBoardLayOut>,
         errorElement:<ErrorPage></ErrorPage>,
         children: [
-            
+            {
+                path:'/dashboard',
+                element:<PrivateRoute><WelcomePage></WelcomePage></PrivateRoute>
+            },
             {
                 path: '/dashboard/userProfile',
                 element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>

@@ -27,18 +27,6 @@ const MemberProfile = () => {
 //    return[useInfo,isPending]
 console.log(userInfo)
     return (
-        // <div className="flex justify-center">
-        //    <div className="text-center bg-blue-600 mt-20 px-10 pb-10 space-y-2 text-white">
-        //        <img src={user?.photoURL} alt="" className="h-20 w-20 rounded-full mx-auto -mt-10"/>
-        //        <h1 className="text-xl font-sans font-medium">User Name :  <span className=""> {user?.displayName}</span></h1>
-        //        <h1 className="text-xl font-sans font-medium">User Email : 
-        //        <span className=""> {user?.email}</span>
-        //        </h1>
-              
-               
-        //    </div>
-          
-        // </div>
         <div style={{backgroundImage:`url(${img1})`}} className="bg-cover min-h-screen">
             <div className=" bg-[#0606068a] min-h-screen">
 
@@ -46,7 +34,7 @@ console.log(userInfo)
             <Divider header={'ProFile InFo'}></Divider>
             </div>
           <div className="flex justify-center -mt-16">
-          <div className="gap-10 bg-[#11123567] mt-20 px-14 py-16 space-y-2 text-white flex rounded-2xl">
+          <div className="gap-10 bg-[#11123567] mt-20 px-14 py-16 space-y-2 text-white flex flex-col md:flex-row rounded-2xl">
                <div>
                <img src={user?.photoURL} alt="" className="h-20 w-20 rounded-full mx-auto "/>
                <h1 className="text-xl font-sans font-medium text-center">  <span className=""> {user?.displayName}</span></h1>
