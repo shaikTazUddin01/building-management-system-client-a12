@@ -20,7 +20,7 @@ const DashBoardLayOut = () => {
 
             <div className='hidden md:flex flex-col justify-center items-center'>
                 <img src={logo} alt="" className='w-[80%]'/>
-                <p className='text-[#f8f8f8] tracking-[8px] text-sm'>Thunder</p>
+                <p className='text-[#f8f8f8] tracking-[8px] text-sm font-bold -mt-1'>Thunder</p>
             </div>
                 <div className='hidden lg:flex'>
                     <ul className='menu text-white uppercase '>

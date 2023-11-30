@@ -15,6 +15,7 @@ const MakeAnnouncement = () => {
         axiosSecret.post('/makeannouncement', announcementInfo)
             .then(res => {
                 if (res.data.insertedId) {
+                    form.reset()
                     Swal.fire({
                         position: "center",
                         icon: "success",
@@ -42,14 +43,14 @@ const MakeAnnouncement = () => {
                                 <label className="label">
                                     <span className="label-text text-xl font-sans font-semibold text-white">Title</span>
                                 </label>
-                                <input type="taxt" placeholder="Title" className="input input-bordered" required name="title" />
+                                <input type="taxt" placeholder="Title" className="input input-bordered text-black" required name="title" />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-xl font-sans font-semibold text-white">Description</span>
+                                    <span className="label-text text-xl font-sans font-semibold text-white ">Description</span>
                                 </label>
-                                <textarea type="taxt" placeholder="Description" className="textarea input-bordered textarea-lg " name="description" required />
+                                <textarea type="taxt" placeholder="Description" className="textarea input-bordered textarea-lg text-black" name="description" required />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary text-xl" type="submit">Submit</button>

@@ -27,6 +27,7 @@ const ManageCoupons = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     refetch()
+                    e.target.reset()
                     toast.success("successfully you create a new coupon")
                 }
             })
@@ -41,7 +42,7 @@ const ManageCoupons = () => {
                 <div className="text-center">
                     {/* modal create cupon */}
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                    <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button>
+                    <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_3').showModal()}>Make Cupon</button>
                     <dialog id="my_modal_3" className="modal">
                         <div className="modal-box">
                             <form method="dialog">

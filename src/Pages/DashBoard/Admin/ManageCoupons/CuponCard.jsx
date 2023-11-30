@@ -62,7 +62,7 @@ const CuponCard = ({ item, refetch }) => {
       <td className='text-white'>{item?.discount}</td>
       <td className='text-white'>{item?.description}</td>
       <td className='text-white' >
-        <button className='btn btn-primary' onClick={() => document.getElementById('my_modal_3').showModal()}>Edit</button>
+        <button className='btn btn-primary' onClick={() => document.getElementById('my_modal_4').showModal()}>Edit</button>
       </td>
       <td>
         <button className='btn btn-error' onClick={() => handleCouponDelete(item?._id)}>
@@ -70,14 +70,14 @@ const CuponCard = ({ item, refetch }) => {
         </button>
       </td>
       {/* //modal */}
-      <dialog id="my_modal_3" className="modal">
+      <dialog id="my_modal_4" className="modal">
         {/* <h1 className='text-3xl text-black'>Update Coupon</h1> */}
         <div className="modal-box">
 
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="absolute right-2 top-2 text-black">
-              <span className='text-black bg-black'>✕</span>
+              <span className='text-blue-800 font-semibold pt-2 pr-2 text-xl'>✕</span>
             </button>
           </form>
           {/* update coupons form */}

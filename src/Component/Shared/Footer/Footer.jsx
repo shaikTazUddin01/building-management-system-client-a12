@@ -30,7 +30,7 @@ const Footer = () => {
                 <div className="grid grid-flow-col gap-4">
                     <a href='https://www.facebook.com/tazahmedcse/' className='text-xl'><FaFacebookF></FaFacebookF></a>
                     <a href='https://www.tazahmedsoft@gmail.com' className='text-2xl'><MdOutgoingMail></MdOutgoingMail></a>
-                    <a href='' className='text-xl'><FaLinkedin></FaLinkedin></a>
+                    <a href='https://www.linkedin.com/in/shaik-taz-uddin-1a47682a0' className='text-xl'><FaLinkedin></FaLinkedin></a>
                 </div>
             </nav>
         </footer>

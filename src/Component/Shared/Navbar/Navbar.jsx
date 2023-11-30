@@ -8,7 +8,7 @@ import logo from '/mainlogo.png'
 
 const Navbar = () => {
   const { user, handleSignOut } = useAuth()
-  const [open, setopen] = useState(true)
+  const [open, setopen] = useState(false)
 
 
   const handleLogOut = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
       .then(res => {
         Swal.fire({
           position: "center",
-          icon: "warnign",
+          icon: "warning",
           title: "successfully you logOut",
           showConfirmButton: false,
           timer: 1500
@@ -51,7 +51,7 @@ const Navbar = () => {
 
 
             {
-              !open ?
+              open ?
                 <div className='lg:mt-48 text-white border border-[#FFFFF]
                                  bg-[#2b2b2b] p-4 mt-10 
                              rounded-md z-20 ml-8 lg:ml-0 lg:mr-48 absolute

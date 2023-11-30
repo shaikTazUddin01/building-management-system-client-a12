@@ -35,16 +35,13 @@ const Apartment = () => {
     console.log(numberofButton)
 
     const { data: pagination, isPending: isPending2, refetch } = useQuery({
-        queryKey: ['pagination'],
+        queryKey: ['pagination',currentPage],
         queryFn: async () => {
             const result = await axiosPubilc.get(`/pagination?page=${currentPage}&size=${perPageItem}`)
             return result.data
         }
     });
-    // useEffect(()=>{
-    //     axiosPubilc.get(`/pagination?page=${currentPage}&size=${perPageItem}`)
-    //     .then(res=>setpagination(res.data))
-    // },[currentPage,axiosPubilc])
+
     if (isPending2) {
         return <img src={loading} alt="" className="mx-auto mt-28" />
     }
