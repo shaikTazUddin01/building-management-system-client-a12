@@ -78,7 +78,7 @@ const ApartmentCard = ({ apartment }) => {
                 <figure><img src={apartmentImage} alt="apartment image" className="h-[250px] w-full" /></figure>
                 <div className="px-5 py-5">
                     <div className="flex justify-between">
-                        <p className="text-2xl font-sans font-semibold ">ApartMent No. : <span className="text-blue-600">{apartmentNo}</span></p>
+                        <p className="text-xl font-sans font-semibold ">ApartMent No. : <span className="text-blue-600">{apartmentNo}</span></p>
                         <p className="text-xl font-sans font-semibold ">Rent :
                             <span className="text-red-600"> {rent}৳</span> </p>
 

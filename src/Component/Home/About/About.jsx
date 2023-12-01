@@ -17,7 +17,7 @@ const About = () => {
                 <Divider header={'About This Building'}></Divider>
             </div>
             <div className='flex flex-col lg:flex-row gap-4 items-center mb-10'>
-                <div className='w-full lg:w-1/2 grid grid-cols-3 px-10 md:px-2'>
+                <div className='w-full lg:w-1/2 grid grid-cols-3 px-1 md:px-2 '>
                     <img src={img1} alt="" className='col-span-2 row-span-2 border w-full' data-aos="fade-up"
                         
                     />
@@ -33,7 +33,7 @@ const About = () => {
                     />
                     {/* <img src={img4} alt=""className='col-span-3 row-span-1' /> */}
                 </div>
-                <div className='w-full lg:w-1/2 px-10 md:px-4' >
+                <div className='w-full lg:w-1/2  md:px-4' >
                     <h1 className='font-serif font-bold text-2xl md:text-4xl' data-aos="fade-down"
                         data-aos-easing="linear"
                         data-aos-duration="1500">Remarkable 2500 Sq Ft Ready Apartment For Rent In Gulshan</h1>
