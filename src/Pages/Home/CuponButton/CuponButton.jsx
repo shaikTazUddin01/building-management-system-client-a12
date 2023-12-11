@@ -3,18 +3,20 @@ import './CouponButton.css';
 import couponsImg from '/coupons2.gif'
 import useCupon from '../../../Hooks/useCupon/useCupon';
 const CuponButton = () => {
-    const [showButton, setShowButton] = useState(true);
+    const [showButton, setShowButton] = useState(false);
     const [showCouponButton, setShowCouponButton] = useState(false)
     const [cupon] = useCupon()
-    // console.log(cupon)
-    useEffect(() => {
-        setShowButton(false);
-    }, []);
+    console.log("button:",showButton)
+    // useEffect(() => {
+    //     setShowButton(false);
+    // }, []);
     console.log(showCouponButton)
     // Show the button when scrolling
     const handleScroll = () => {
         const scrollY = window.scrollY;
-        setShowButton(scrollY > 0); // Adjust the scroll threshold as needed
+        console.log(scrollY)
+        setShowButton(scrollY > 100); // Adjust the scroll threshold as needed
+        // setShowButton(scrollY < 1000); // Adjust the scroll threshold as needed
     };
 
     // Attach the scroll event listener when the component mounts
@@ -60,13 +62,11 @@ const CuponButton = () => {
                                                     <td><p>{item?.cuponCode}</p></td>
                                                     <td>{item?.discount}%</td>
                                                 </tr>
-
                                             )
                                         })}
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                 }
             </button>

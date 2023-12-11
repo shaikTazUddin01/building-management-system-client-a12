@@ -36,6 +36,7 @@ const Banner = () => {
                 <SwiperSlide ><div className='h-[500px] bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `url(${img1})` }}>
                 <div className=' bg-[#0b0b1c85] h-[500px] flex justify-center items-center'>
                         <div data-aos="fade-down">
+                            {/* <h1>Hello</h1> */}
                             <h1 className='text-white  text-center font-serif   mb-2 text-2xl md:text-3xl lg:text-6xl  uppercase' >Jonab Ali Mention</h1>
                             <h1 className='text-[#c8c7c7]  text-center font-serif lg:text-2xl text-xl ' >Ghasful And Most BeautiFul Building in Gulshan</h1>
                             <div className='hidden lg:flex items-center justify-center mt-2' >

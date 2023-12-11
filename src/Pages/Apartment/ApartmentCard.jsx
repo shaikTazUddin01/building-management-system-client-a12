@@ -4,12 +4,22 @@ import useAuth from "../../Hooks/useAuth";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useAdmin from "../../Hooks/useAdmin/useAdmin";
+import useBookedRoom from "../../Hooks/useBookedRoom/useBookedRoom";
+import { useNavigate } from "react-router-dom";
+import loading from '/loading.gif'
 const ApartmentCard = ({ apartment }) => {
-    const [role] = useAdmin()
-    // console.log(role)
-    AOS.init()
+    const navigate = useNavigate()
     const axiosPubilc = useAxiosPublic()
     const { user } = useAuth()
+    const [role] = useAdmin()
+    const [bookedRoom, isLoading] = useBookedRoom()
+    console.log('all booked room:',bookedRoom)
+
+    // console.log(role)
+    AOS.init()
+// if(isLoading){
+//     return <img src={loading} alt="" className="mx-auto mt-28" />
+// }
     const { _id, apartmentImage, floorNo, blockName, apartmentNo, rent, roomNo } = apartment;
     const currentDate = new Date()
     const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -18,6 +28,9 @@ const ApartmentCard = ({ apartment }) => {
         year: 'numeric',
     });
 
+    // check unavailable room
+    const unavailable = bookedRoom?.find(item => item?.RoomNo == roomNo)
+    console.log("room:", unavailable)
     //   console.log(formattedDate);
 
     const handleAgeement = () => {
@@ -61,7 +74,7 @@ const ApartmentCard = ({ apartment }) => {
             })
     }
 
-    const handelAlreadyBook=()=>{
+    const handelAlreadyBook = () => {
         Swal.fire({
             position: "center",
             icon: "warning",
@@ -69,6 +82,16 @@ const ApartmentCard = ({ apartment }) => {
             showConfirmButton: false,
             timer: 1500
         });
+    }
+    const handleCheckLogin = () => {
+        Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "please login",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        navigate('/login')
     }
     return (
         <div>
@@ -89,14 +112,31 @@ const ApartmentCard = ({ apartment }) => {
                             <span className="text-blue-600"> {floorNo}</span> </p>
                     </div>
                     {
-                        role === 'member' ?
-                            <div className="text-center my-5">
-                                <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handelAlreadyBook}>Agreement</button>
+
+                        unavailable ?
+                            <div className="text-center my-5" >
+                                <div className="tooltip" data-tip="This Room Already booked ">
+                                    <button className="btn btn-success" disabled>UnAvailable</button>
+
+                                </div>
                             </div>
+
+
                             :
-                            <div className="text-center my-5">
-                                <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handleAgeement}>Agreement</button>
-                            </div>
+                            role === 'member' ?
+                                <div className="text-center my-5">
+                                    <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handelAlreadyBook}>Agreement</button>
+                                </div>
+                                :
+                                <div className="text-center my-5">
+                                    {
+                                        user ?
+                                            <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handleAgeement}>Agreement</button>
+                                            :
+                                            <button className="bg-blue-900 hover:bg-[var(--bg-primary)] text-white rounded-md py-3 px-4 uppercase hover:shadow-xl hover:shadow-blue-900" onClick={handleCheckLogin}>Agreement</button>
+
+                                    }
+                                </div>
                     }
 
                 </div>

@@ -18,7 +18,7 @@ const Announcements = () => {
                 <div className="-mt-16 pb-20">
                     <div className="bg-[#11123567] mt-20 px-14 py-16 space-y-2 text-white rounded-2xl mx-10">
                         <div className="overflow-x-auto">
-                            <table className="table table-zebra">
+                            <table className="table ">
                                 {/* head */}
                                 <thead>
                                     <tr className="text-xl font-semibold border-black text-white">

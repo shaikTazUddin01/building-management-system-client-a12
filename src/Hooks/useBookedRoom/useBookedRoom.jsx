@@ -1,14 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../AxiosSecure/useAxiosSecure';
+import useAxiosPublic from '../AxiosPublic/useAxiosPublic';
 
 
 const useBookedRoom = () => {
-    const axiosSecure=useAxiosSecure()
+    const axiosPubilc=useAxiosPublic()
     // const{loader,setloader}=useState(true)
     const { data:bookedRoom,isLoading } = useQuery({
         queryKey: ['bookedRoom'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/bookedRoom')
+            const res = await axiosPubilc.get('/bookedRoom')
             // setloader(false)
             return res.data
         }
