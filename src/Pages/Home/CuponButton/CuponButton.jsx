@@ -29,7 +29,7 @@ const CuponButton = () => {
 
 
     return (
-        <div className={`coupon-button ${showButton ? 'visible' : 'hidden'} `}>
+        <div className={`z-10 coupon-button ${showButton ? 'visible' : 'hidden'} `}>
             {/* Your button content goes here */}
             <div className={`${!showCouponButton ? 'hidden' : 'visible'}`}>
                 {/* close button */}
