@@ -5,7 +5,7 @@ import Apartment from '../Pages/Apartment/Apartment';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/SignUp/SignUp';
 import DashBoardLayOut from '../Latout/DashBoardLayOut';
-import Myprofile from '../Pages/User/MyProfile/Myprofile';
+// import Myprofile from '../Pages/User/MyProfile/Myprofile';
 import Announcements from '../Pages/DashBoard/User/Announcements';
 import AdminProfile from '../Pages/DashBoard/Admin/AdminProfile/AdminProfile';
 import ManageMembers from '../Pages/DashBoard/Admin/ManageMembers/ManageMenbers'
@@ -22,6 +22,8 @@ import MakePayment from '../Pages/DashBoard/Member/MakePayment/MakePayment';
 import PaymentForm from '../Pages/DashBoard/Member/MakePayment/Payment';
 import PaymentHistory from '../Pages/DashBoard/Member/PaymentHistory/PaymentHistory';
 import WelcomePage from '../Pages/DashBoard/WelcomePage';
+import AllPaymentHistory from '../Pages/DashBoard/Admin/AllPaymentHistory/AllPaymentHistory';
+// import AllPaymentHistory from '../Pages/AllPaymentHistory/AllPaymentHistory';
 // import useAdmin from '../Hooks/useAdmin/useAdmin';
 
 
@@ -91,6 +93,10 @@ const Routes = createBrowserRouter([
             {
                 path:'/dashboard/manageCoupons',
                 element:<AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
+            },
+            {
+                path: '/dashboard/allpaymenthistory',
+                element: <AdminRoute><AllPaymentHistory></AllPaymentHistory></AdminRoute>
             },
             //member profile
             {

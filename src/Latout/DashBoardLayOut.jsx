@@ -55,6 +55,9 @@ const DashBoardLayOut = () => {
                                 <li><NavLink to={'/dashboard/manageCoupons'}>
                                     <MdOutlineCardGiftcard className='text-xl' />
                                     Manage Coupons</NavLink></li>
+                                    <li><NavLink to={'/dashboard/allpaymenthistory'}>
+                                    <FaHistory className='text-xl'></FaHistory>
+                                    Payment History</NavLink></li>
                             </>
                         }
                         {/* member menu */}
