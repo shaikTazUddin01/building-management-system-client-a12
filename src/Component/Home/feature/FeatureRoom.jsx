@@ -19,9 +19,9 @@ import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 const FeatureRoom = () => {
 
     return (
-        <div className='pb-20 p-3'>
+        <div className='pb-20 p-3 -mt-12'>
             <div>
-                <div className='mt-20 mb-10' >
+                <div className='mb-10' >
                     <Divider header={'The Best of Rooms oF Janab Ali Mention'}></Divider></div>
 
             </div>

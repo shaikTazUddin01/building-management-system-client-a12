@@ -13,7 +13,7 @@ const Home = () => {
            <About></About>
            </div>
            
-           <div className="px-5 md:px-20 mb-10 mt-10 lg:mt-20">
+           <div className="px-5 md:px-20 mt-10 lg:mt-20">
             <GoogleMap></GoogleMap>
            </div>
            
